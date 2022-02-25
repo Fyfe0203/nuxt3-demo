@@ -5,5 +5,7 @@
         <NuxtLink to="/detail" class="text-3xl font-bold underline text-primary">
             Detail Page
         </NuxtLink>
+
+        <a-button type="primary">按钮</a-button>
     </div>
 </template>
