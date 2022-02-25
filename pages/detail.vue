@@ -9,6 +9,7 @@
         <div>
             {{ $hello() }}
         </div>
+        div {{ a }}
     </div>
 </template>
 
@@ -16,4 +17,12 @@
     const counter = useCounter();
     // 会自动加上$前缀
     const { $hello } = useNuxtApp();
+</script>
+
+<script>
+    export default {
+        methods: {
+            ok() {},
+        },
+    };
 </script>
