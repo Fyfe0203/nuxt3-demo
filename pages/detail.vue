@@ -22,7 +22,7 @@
         <div class="h-3" />
         <a-button type="primary" @click="$confirm({ title: 'success' })">confirm</a-button>
         <div class="h-3" /> -->
-        <h3>detals page</h3>
+        <h3>detals page - langue {{ $t('message.hello') }}</h3>
         <Hellow />
 
         <a-button @click="counter++">+</a-button>

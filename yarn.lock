@@ -5626,6 +5626,11 @@ vue-types@^3.0.0:
   dependencies:
     is-plain-object "3.0.1"
 
+vue3-i18n@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/vue3-i18n/-/vue3-i18n-1.1.5.tgz#e00839e05b176bb2527f00fcd1bcdd82e1416fa9"
+  integrity sha512-DN5XfE0z6BnFxjbP/qW8AKI5QCex97L2l8z7G76ccTkfTsJ18n4mXGCy4K9H2rm4FlzDx/USPlPqQK64yXQqDg==
+
 vue@^3.2.31:
   version "3.2.31"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.31.tgz#e0c49924335e9f188352816788a4cca10f817ce6"
