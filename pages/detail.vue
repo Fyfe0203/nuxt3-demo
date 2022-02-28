@@ -10,6 +10,8 @@
         </a-button>
         <div class="h-3" />
         <a-button type="primary" @click="$info({ title: 'success' })">info</a-button>
+        <div class="h-3" />
+        <a-button type="primary" @click="ok">fetch</a-button>
         <!-- 
         <div class="h-3" />
         <a-button type="primary" @click="$success({ title: 'success' })">success</a-button>
@@ -38,12 +40,24 @@
 
 <script setup>
     const counter = useCounter();
+    const { $axios } = useNuxtApp();
+    async function ok() {
+        console.log('axios', $axios);
+        const { data } = await useFetch('https://test.elfinkingdom.com/contract/coin/contract');
+        const data2 = await $axios.$get('/contract/coin/contract');
+        console.log(data, data2);
+    }
 </script>
 
 <script>
-    export default {
-        methods: {
-            ok() {},
-        },
-    };
+    // export default {
+    //     methods: {
+    //         async ok() {
+    //             const { data } = await useFetch(
+    //                 'https://test.elfinkingdom.com/contract/coin/contract'
+    //             );
+    //             console.log(data);
+    //         },
+    //     },
+    // };
 </script>

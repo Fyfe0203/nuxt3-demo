@@ -17,6 +17,7 @@
         "unplugin-vue-components": "^0.17.21"
     },
     "dependencies": {
-        "ant-design-vue": "^3.0.0-alpha.16"
+        "ant-design-vue": "^3.0.0-alpha.16",
+        "axios": "^0.26.0"
     }
 }

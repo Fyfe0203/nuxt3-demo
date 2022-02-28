@@ -63,4 +63,7 @@ export default defineNuxtConfig({
             noExternal: ['moment', 'compute-scroll-into-view', 'ant-design-vue'],
         },
     },
+    privateRuntimeConfig: {
+        BASE_URL: '', // Default to an empty string, automatically loaded at runtime using process.env.API_SECRET
+    },
 });
