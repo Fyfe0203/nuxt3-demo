@@ -1,69 +1,21 @@
-import { defineNuxtConfig } from 'nuxt3';
-import { resolve } from 'path';
-import Components from 'unplugin-vue-components/vite';
-import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
-
-// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
+/*
+ * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @Date: 2023-05-22 13:50:00
+ * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @LastEditTime: 2023-07-20 16:31:21
+ * @Description:
+ * @FilePath: /nuxt3-project/nuxt.config.ts
+ */
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    meta: {
-        title: 'NFT Shop',
-        meta: [
-            { charset: 'utf-8' },
-            {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1, user-scalable=0',
-            },
-            {
-                hid: 'keywords',
-                name: 'keywords',
-                content: 'keywords',
-            },
-            {
-                hid: 'description',
-                name: 'description',
-                content: 'description',
-            },
-        ],
-        link: [],
-        script: [],
-    },
-    css: ['~/assets/css/tailwind.css'],
-    alias: {
-        '@': resolve(__dirname, './assets'),
-    },
-    buildModules: [],
-    build: {
-        postcss: {
-            postcssOptions: {
-                plugins: {
-                    tailwindcss: {},
-                    autoprefixer: {},
-                },
-            },
+    app: {
+        head: {
+            charset: 'utf-8',
+            viewport: 'width=device-width, initial-scale=1',
         },
     },
-    vite: {
-        css: {
-            preprocessorOptions: {
-                less: {
-                    modifyVars: {
-                        'primary-color': '#0AA679',
-                    },
-                    javascriptEnabled: true,
-                },
-            },
-        },
-        plugins: [
-            Components({
-                resolvers: [AntDesignVueResolver()],
-            }),
-        ],
-        // @ts-expect-error: Missing ssr key
-        ssr: {
-            noExternal: ['moment', 'compute-scroll-into-view', 'ant-design-vue'],
-        },
-    },
-    privateRuntimeConfig: {
-        BASE_URL: '', // Default to an empty string, automatically loaded at runtime using process.env.API_SECRET
-    },
+    modules: [],
+    // postcss: {},
+    // vite: {},
+    // nitro: {},
 });

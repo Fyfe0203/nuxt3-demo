@@ -1,13 +1,17 @@
+<!--
+ * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @Date: 2023-05-25 13:08:39
+ * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @LastEditTime: 2023-05-25 13:21:48
+ * @Description: 
+ * @FilePath: /nuxt3-project/pages/index.vue
+-->
 <template>
-    <div class="index-page">
-        <h3 class="text-[30px]">index page</h3>
-        <div class="pb-4">
-            <!--跳转链接-->
-            <NuxtLink to="/detail" class="text-3xl font-bold underline text-primary">
-                Detail Page
-            </NuxtLink>
-        </div>
-
-        <a-button type="primary">按钮</a-button>
-    </div>
+    <div>home</div>
 </template>
+<script>
+    // This will work in both `<script setup>` and `<script>`
+    definePageMeta({
+        layout: 'default',
+    });
+</script>

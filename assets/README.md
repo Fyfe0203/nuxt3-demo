@@ -1,15 +1,14 @@
 <!--
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @Date: 2023-05-25 13:09:57
+ * @Date: 2023-07-20 15:30:29
  * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2023-05-25 13:16:11
- * @Description: 
- * @FilePath: /nuxt3-project/layouts/default.vue
+ * @LastEditTime: 2023-07-20 15:30:46
+ * @Description:
+ * @FilePath: /nuxt3-project/assets/README.md
 -->
+
+```html
 <template>
-    <div>
-        <div>header</div>
-        <slot />
-        <div>footer</div>
-    </div>
+    <img src="~/assets/img/nuxt.png" alt="Discover Nuxt 3" />
 </template>
+```
