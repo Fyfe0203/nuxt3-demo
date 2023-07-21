@@ -1,5 +1,4 @@
 {
-    "message": {
-        "hello": "你好，欢迎"
-    }
+    "hello": "你好，欢迎",
+    "welcome": "欢迎"
 }
