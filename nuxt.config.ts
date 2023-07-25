@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-22 13:50:00
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-25 14:47:58
+ * @LastEditTime: 2023-07-25 17:11:16
  * @Description:
  * @FilePath: /nuxt3-demo/nuxt.config.ts
  */
@@ -25,6 +25,9 @@ export default defineNuxtConfig({
             },
         ],
         'nuxt-icons',
+        // https://pinia.vuejs.org/ssr/nuxt.html
+        // yarn add pinia @pinia/nuxt
+        // '@pinia/nuxt',
     ],
     colorMode: {
         classSuffix: '',
