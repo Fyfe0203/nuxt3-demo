@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-25 13:08:39
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-21 18:04:29
+ * @LastEditTime: 2023-07-25 14:49:30
  * @Description: 
  * @FilePath: /nuxt3-demo/pages/index.vue
 -->
@@ -23,6 +23,10 @@
             </select>
             <p>{{ $t('welcome') }}</p>
         </form>
+
+        svg使用：
+        <nuxt-icon name="m1" filled />
+        <nuxt-icon name="arr-circle-right" />
     </div>
 </template>
 <script>
