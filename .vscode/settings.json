@@ -24,5 +24,8 @@
     "volar-document.trace.server": "messages",
     "volar-html.trace.server": "messages",
     "volar.codeLens.scriptSetupTools": true,
-    "vetur.validation.script": false
+    "vetur.validation.script": false,
+    "emmet.includeLanguages": {
+        "postcss": "css"
+    }
 }

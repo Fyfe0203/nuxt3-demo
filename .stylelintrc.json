@@ -1,1 +1,7 @@
-{}
+{
+    "customSyntax": "postcss-html",
+    "extends": ["stylelint-config-recommended-vue"],
+    "rules": {
+        "function-no-unknown": null
+    }
+}
