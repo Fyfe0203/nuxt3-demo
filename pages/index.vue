@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-25 13:08:39
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-26 18:00:53
+ * @LastEditTime: 2023-07-26 18:56:10
  * @Description: 
  * @FilePath: /nuxt3-demo/pages/index.vue
 -->
@@ -62,9 +62,9 @@
 </template>
 <script>
     // This will work in both `<script setup>` and `<script>`
-    definePageMeta({
-        layout: 'default',
-    });
+    // definePageMeta({
+    //     layout: 'default',
+    // });
 </script>
 <script setup>
     import { useAppStore } from '@/stores/app';
