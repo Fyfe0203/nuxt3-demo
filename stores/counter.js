@@ -2,10 +2,13 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-26 14:47:11
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-26 14:47:17
+ * @LastEditTime: 2023-07-26 16:24:14
  * @Description:
  * @FilePath: /nuxt3-demo/stores/counter.js
  */
+
+import { defineStore, ref } from '#imports';
+
 export const useCounterStore = defineStore('counter', () => {
     const count = ref(0);
     function increment() {

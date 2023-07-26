@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-25 13:08:39
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-26 15:06:03
+ * @LastEditTime: 2023-07-26 16:51:54
  * @Description: 
  * @FilePath: /nuxt3-demo/pages/index.vue
 -->
@@ -16,7 +16,8 @@
             !
         </div>
 
-        <form>
+        <form class="pt-10">
+            <div>翻译</div>
             <select v-model="locale">
                 <option value="en">en</option>
                 <option value="zh_CN">zh_CN</option>
@@ -24,11 +25,12 @@
             <p>{{ $t('welcome') }}</p>
         </form>
 
-        svg使用：
-        <nuxt-icon name="m1" filled />
-        <nuxt-icon name="arr-circle-right" />
-
-        <div>
+        <div class="pt-10">
+            svg使用：
+            <nuxt-icon name="m1" filled />
+            <nuxt-icon name="arr-circle-right" />
+        </div>
+        <div class="pt-10">
             store的使用
             <br />
 
@@ -36,10 +38,10 @@
             <br />
             store.getters.double: {{ store.double }}
             <br />
-            <button @click="store.increment" class="bg-red-300 w-16">增加</button>
+            <button class="bg-red-300 w-16" @click="store.increment">增加</button>
         </div>
 
-        <div>
+        <div class="pt-10">
             composables使用
             <br />
             <div>
@@ -47,6 +49,14 @@
                 <button class="bg-green-300 w-16" @click="counter++">+</button>
                 <button class="bg-red-300 w-16" @click="counter--">-</button>
             </div>
+        </div>
+
+        <div class="pt-10">
+            element-plus使用：
+            <br />
+            <el-button @click="ElMessage('hello')">button</el-button>
+            <ElButton :icon="ElIconEditPen" type="success">button</ElButton>
+            <LazyElButton type="warning">lazy button</LazyElButton>
         </div>
     </div>
 </template>

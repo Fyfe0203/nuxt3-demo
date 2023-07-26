@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-22 13:50:00
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-26 14:54:25
+ * @LastEditTime: 2023-07-26 16:01:49
  * @Description:
  * @FilePath: /nuxt3-demo/nuxt.config.ts
  */
@@ -33,6 +33,13 @@ export default defineNuxtConfig({
                 autoImports: ['defineStore'],
             },
         ],
+        [
+            '@nuxtjs/eslint-module',
+            {
+                /* module options */
+            },
+        ],
+        ['@element-plus/nuxt', {}],
     ],
     colorMode: {
         classSuffix: '',

@@ -6,13 +6,23 @@
         "dev": "nuxt dev",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
-        "postinstall": "nuxt prepare"
+        "postinstall": "nuxt prepare",
+        "lint:js": "eslint --ext \".js,.vue\" --ignore-path .npmignore .",
+        "lint:style": "stylelint \"**/*.{css,scss,sass,html,vue,less}\" --ignore-path .npmignore .stylelintignore",
+        "lint:prettier": "prettier --ignore-path .npmignore --check .",
+        "lint": "yarn lint:js && yarn lint:style && yarn lint:prettier",
+        "lintfix": "prettier --write --list-different . --ignore-path .npmignore && yarn lint:js --fix && yarn lint:style --fix"
     },
     "devDependencies": {
+        "@babel/eslint-parser": "^7.22.9",
+        "@element-plus/nuxt": "^1.0.5",
+        "@nuxt/eslint-config": "^0.1.1",
         "@nuxtjs/color-mode": "^3.2.0",
+        "@nuxtjs/eslint-module": "^4.1.0",
         "@nuxtjs/i18n": "^8.0.0-beta.13",
         "@nuxtjs/tailwindcss": "^6.7.2",
         "@types/node": "^18",
+        "eslint": "^8.45.0",
         "nuxt": "^3.5.2",
         "nuxt-icons": "^3.2.1",
         "postcss-color-gray": "5.0.0"
@@ -23,6 +33,7 @@
         "nuxt"
     ],
     "dependencies": {
+        "element-plus": "^2.3.8",
         "@pinia/nuxt": "^0.4.11",
         "pinia": "^2.1.4"
     }
