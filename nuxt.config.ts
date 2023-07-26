@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-22 13:50:00
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-26 17:08:08
+ * @LastEditTime: 2023-07-26 18:36:04
  * @Description:
  * @FilePath: /nuxt3-demo/nuxt.config.ts
  */
@@ -13,8 +13,13 @@ export default defineNuxtConfig({
         head: {
             charset: 'utf-8',
             viewport: 'width=device-width, initial-scale=1',
+            link: [
+                { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+                { rel: 'stylesheet', type: 'text/css', href: '/theme.css' },
+            ],
         },
     },
+    css: ['@/assets/css/main.pcss'],
     modules: [
         '@nuxtjs/tailwindcss',
         '@nuxtjs/color-mode',

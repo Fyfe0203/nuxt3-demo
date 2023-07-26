@@ -27,5 +27,13 @@
     "vetur.validation.script": false,
     "emmet.includeLanguages": {
         "postcss": "css"
-    }
+    },
+    "files.associations": {
+        "*.css": "postcss",
+        "*.pcss": "postcss",
+        "*.postcss": "postcss"
+    },
+    "i18n-ally.localesPaths": [
+        "locales"
+    ]
 }

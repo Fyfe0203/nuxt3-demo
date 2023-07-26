@@ -1,0 +1,25 @@
+:root {
+    --primary-color: #694ef6;
+    --main-bg-color: #f8f9fb;
+    --main-color: #0a0e14;
+}
+
+.dark:root {
+    --primary-color: #694ef6;
+    --main-bg-color: #121722;
+    --main-color: #e4ebf9;
+}
+
+html,
+html body {
+    color: var(--main-color) !important;
+    background-color: var(--main-bg-color);
+}
+
+.main-bg {
+    background: var(--main-bg-color);
+}
+
+.main-color {
+    color: var(--main-color) !important;
+}

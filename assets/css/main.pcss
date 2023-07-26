@@ -1,0 +1,24 @@
+html {
+    body {
+        .test {
+            &_working {
+                @apply text-green-500;
+            }
+        }
+    }
+}
+
+.ping-component {
+    --slider-bg: #ebedf2;
+
+    .ant-slider {
+        height: 10px;
+        background: var(--slider-bg);
+        border-radius: 5px;
+    }
+}
+.dark {
+    .ping-component {
+        --slider-bg: red;
+    }
+}

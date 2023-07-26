@@ -7,11 +7,11 @@
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
-        "lint:js": "eslint --ext \".js,.vue\" --ignore-path .eslintrcignore .",
-        "lint:style": "stylelint \"**/*.{css,scss,sass,html,vue,less}\" --ignore-path .npmignore",
-        "lint:prettier": "prettier --ignore-path .prettierrcignore --check .",
+        "lint:js": "eslint --ext \".js,.vue\" --ignore-path .eslintignore .",
+        "lint:style": "stylelint \"**/*.{css,scss,sass,html,vue,less}\" --ignore-path .eslintignore",
+        "lint:prettier": "prettier --ignore-path .prettierignore --check .",
         "lint": "yarn lint:js && yarn lint:style && yarn lint:prettier",
-        "lintfix": "prettier --write --list-different . --ignore-path .npmignore && yarn lint:js --fix && yarn lint:style --fix"
+        "lintfix": "prettier --write --list-different . --ignore-path .eslintignore && yarn lint:js --fix && yarn lint:style --fix"
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.22.9",

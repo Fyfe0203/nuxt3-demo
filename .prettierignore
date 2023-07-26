@@ -6,4 +6,5 @@ node_modules
 .output
 .env
 dist
+public
 .DS_Store
