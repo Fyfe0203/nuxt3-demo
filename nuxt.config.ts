@@ -2,13 +2,15 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-22 13:50:00
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-26 18:36:04
+ * @LastEditTime: 2023-07-27 16:28:31
  * @Description:
  * @FilePath: /nuxt3-demo/nuxt.config.ts
  */
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
+    devtools: true,
+    ssr: true,
     app: {
         head: {
             charset: 'utf-8',
@@ -26,7 +28,21 @@ export default defineNuxtConfig({
         [
             '@nuxtjs/i18n',
             {
-                vueI18n: './i18n.config.ts',
+                lazy: true,
+                langDir: 'locales',
+                defaultLocale: 'en',
+                strategy: 'no_prefix',
+                locales: [
+                    {
+                        code: 'en',
+                        name: 'English',
+                        file: 'en.json',
+                    },
+                    { code: 'zh_CN', name: '简体中文', file: 'zh_CN.json' },
+                ],
+                detectBrowserLanguage: {
+                    cookieKey: 'Language',
+                },
             },
         ],
         'nuxt-icons',
@@ -54,6 +70,8 @@ export default defineNuxtConfig({
     ],
     colorMode: {
         classSuffix: '',
+        // fallback: 'light',
+        // storageKey: 'color-mode',
     },
     tailwindcss: {
         cssPath: '~/assets/css/tailwind.css',

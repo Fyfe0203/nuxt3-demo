@@ -33,7 +33,6 @@
         "*.pcss": "postcss",
         "*.postcss": "postcss"
     },
-    "i18n-ally.localesPaths": [
-        "locales"
-    ]
+    "i18n-ally.localesPaths": ["locales"],
+    "i18n-ally.keystyle": "nested"
 }

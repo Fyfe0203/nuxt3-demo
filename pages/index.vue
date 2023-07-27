@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-25 13:08:39
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-26 18:56:10
+ * @LastEditTime: 2023-07-27 16:11:46
  * @Description: 
  * @FilePath: /nuxt3-demo/pages/index.vue
 -->
@@ -18,10 +18,6 @@
 
         <form class="pt-10">
             <div>翻译</div>
-            <select v-model="locale">
-                <option value="en">en</option>
-                <option value="zh_CN">zh_CN</option>
-            </select>
             <p>{{ $t('welcome') }}</p>
         </form>
 
@@ -68,7 +64,6 @@
 </script>
 <script setup>
     import { useAppStore } from '@/stores/app';
-    const { locale } = useI18n();
     const store = useAppStore();
     const counter = useCounter();
 </script>
