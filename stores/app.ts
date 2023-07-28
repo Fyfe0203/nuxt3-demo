@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-26 14:44:47
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-28 13:19:56
+ * @LastEditTime: 2023-07-28 14:50:51
  * @Description:
  * @FilePath: /nuxt3-demo/stores/app.ts
  */
@@ -58,7 +58,6 @@ export const useAppStore = defineStore('app', {
             }
             const { data } = await useHttp.get('/chain/list');
             const result = data.value?.data;
-            console.log('result', result);
             this.$patch((state) => {
                 state.chainList = (result as any) ?? [];
             });
