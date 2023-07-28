@@ -38,8 +38,10 @@
         "nuxt"
     ],
     "dependencies": {
+        "@metamask/detect-provider": "^2.0.0",
         "@pinia/nuxt": "^0.4.11",
         "element-plus": "^2.3.8",
-        "pinia": "^2.1.4"
+        "pinia": "^2.1.4",
+        "web3": "^4.0.3"
     }
 }
