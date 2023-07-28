@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-25 13:08:39
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-27 16:11:46
+ * @LastEditTime: 2023-07-28 13:31:19
  * @Description: 
  * @FilePath: /nuxt3-demo/pages/index.vue
 -->
@@ -54,6 +54,12 @@
             <ElButton :icon="ElIconEditPen" type="success">button</ElButton>
             <LazyElButton type="warning">lazy button</LazyElButton>
         </div>
+
+        <div class="pt-10">
+            查询数据：
+            <br />
+            {{ data }}
+        </div>
     </div>
 </template>
 <script>
@@ -66,6 +72,9 @@
     import { useAppStore } from '@/stores/app';
     const store = useAppStore();
     const counter = useCounter();
+    // 另外一种方式
+    // useApi().login.getUserInfo()
+    const { data } = await useHttp.postForm('/banner/list', { type: 1 });
 </script>
 <style lang="postcss">
     .test {

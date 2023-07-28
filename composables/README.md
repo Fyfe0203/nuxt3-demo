@@ -1,10 +1,10 @@
 <!--
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-07-20 16:21:30
- * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2023-07-20 16:54:01
+ * @LastEditors: fyfe0203 freeser@live.cn
+ * @LastEditTime: 2023-07-28 13:31:14
  * @Description:
- * @FilePath: /nuxt3-project/composables/README.md
+ * @FilePath: /nuxt3-demo/composables/README.md
 -->
 
 ```js
@@ -92,4 +92,13 @@ export default defineNuxtConfig({
         ],
     },
 });
+```
+
+fetch请求方式
+
+```js
+// 另外一种方式
+useApi().login.getUserInfo();
+// 直接请求
+const { data } = await useHttp.postForm('/banner/list', { type: 1 });
 ```

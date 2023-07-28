@@ -16,26 +16,26 @@ type UrlType = string | Request | Ref<string | Request> | (() => string | Reques
 export type HttpOption<T> = UseFetchOptions<ResOptions<T>>;
 
 function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>) {
+    const res = response?._data;
     const err = (text: string) => {
         ElMessage({
-            message: response?._data?.message ?? text,
+            message: res?.message ?? text,
             type: 'error',
         });
     };
-    if (!response._data) {
+    if (!res) {
         err('请求超时，服务器无响应！');
         return;
     }
     const appStore = useAppStore();
     const handleMap: { [key: number]: () => void } = {
+        200: () => handleMap[res.code]?.(),
         404: () => err('服务器资源不存在'),
         500: () => err('服务器内部错误'),
         403: () => err('没有权限访问该资源'),
         401: () => {
             err('登录状态已过期，需要重新登录');
             appStore.logout();
-            // TODO 跳转实际登录页
-            navigateTo('/');
         },
     };
     handleMap[response.status] ? handleMap[response.status]() : err('未知错误！');
@@ -50,25 +50,23 @@ function fetch<T>(url: UrlType, option: any) {
             const {
                 public: { apiBase },
             } = useRuntimeConfig();
-            options.baseURL = apiBase as string;
+
+            options.baseURL = String(url).includes('://') ? '' : apiBase;
             // 添加请求头,没登录不携带token
-            const appStore = useAppStore();
-            if (appStore.authorization) {
-                options.headers = new Headers(options.headers);
-                options.headers.set('Authorization', appStore.authorization);
-            }
+            // const appStore = useAppStore();
+            // if (appStore.authorization) {
+            //     options.headers = new Headers(options.headers || {});
+            //     options.headers.set('Authorization', appStore.authorization);
+            // }
         },
         // 响应拦截
         onResponse({ response }) {
-            if (response.headers.get('content-disposition') && response.status === 200)
-                return response;
+            const res = response._data || {};
             // 在这里判断错误
-            if (response._data.code !== 200) {
+            if (response.status !== 200 || res.code !== 0) {
                 handleError<T>(response);
-                return Promise.reject(response._data);
+                return Promise.reject(response);
             }
-            // 成功返回
-            return response._data;
         },
         // 错误处理
         onResponseError({ response }) {
@@ -80,6 +78,12 @@ function fetch<T>(url: UrlType, option: any) {
     });
 }
 
+function fixFormHeader(headers: any) {
+    headers = headers || {};
+    headers['Content-type'] = 'application/x-www-form-urlencoded';
+    return headers;
+}
+
 // 自动导出
 export const useHttp = {
     get: <T>(url: UrlType, params?: any, option?: HttpOption<T>) => {
@@ -88,6 +92,15 @@ export const useHttp = {
 
     post: <T>(url: UrlType, body?: any, option?: HttpOption<T>) => {
         return fetch<T>(url, { method: 'post', body, ...option });
+    },
+
+    postForm: <T>(url: UrlType, body?: any, option?: HttpOption<T>) => {
+        return fetch<T>(url, {
+            method: 'post',
+            body,
+            ...option,
+            headers: fixFormHeader(option?.headers),
+        });
     },
 
     put: <T>(url: UrlType, body?: any, option?: HttpOption<T>) => {
