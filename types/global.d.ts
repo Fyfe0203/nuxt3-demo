@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-27 11:15:03
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-28 17:17:37
+ * @LastEditTime: 2023-07-31 12:00:48
  * @Description:
  * @FilePath: /nuxt3-demo/types/global.d.ts
  */
@@ -93,5 +93,6 @@ declare global {
 
     interface Window {
         ethereum?: any;
+        Web3?: any;
     }
 }

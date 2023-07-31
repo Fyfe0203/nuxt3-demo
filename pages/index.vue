@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-25 13:08:39
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-28 13:31:19
+ * @LastEditTime: 2023-07-31 14:00:58
  * @Description: 
  * @FilePath: /nuxt3-demo/pages/index.vue
 -->
@@ -25,16 +25,6 @@
             svg使用：
             <nuxt-icon name="m1" filled />
             <nuxt-icon name="arr-circle-right" />
-        </div>
-        <div class="pt-10">
-            store的使用
-            <br />
-
-            store.state.count: {{ store.count }}
-            <br />
-            store.getters.double: {{ store.double }}
-            <br />
-            <button class="bg-red-300 w-16" @click="store.increment">增加</button>
         </div>
 
         <div class="pt-10">
@@ -69,8 +59,6 @@
     // });
 </script>
 <script setup>
-    import { useAppStore } from '@/stores/app';
-    const store = useAppStore();
     const counter = useCounter();
     // 另外一种方式
     // useApi().login.getUserInfo()

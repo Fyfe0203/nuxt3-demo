@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-26 14:44:47
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-28 18:32:45
+ * @LastEditTime: 2023-07-31 15:28:46
  * @Description:
  * @FilePath: /nuxt3-demo/stores/app.ts
  */
@@ -11,29 +11,28 @@
 import { useHttp } from '~/composables/useHttp';
 
 interface State {
-    count: number;
     authorization: string;
     address: string;
     chainId: number | undefined;
     chainType: string;
     chainList: ChainModel[];
     walletKey: string;
+    walletToken: string;
     user?: any;
 }
 
 export const useAppStore = defineStore('app', {
     state: (): State => ({
-        count: 0,
         authorization: useCookie('authorization').value || '',
         address: '',
         chainId: undefined,
         chainType: '',
         chainList: [],
-        walletKey: useCookie('wallet-key').value || '',
+        walletKey: '',
+        walletToken: useCookie('wallet-token').value || '',
         user: undefined,
     }),
     getters: {
-        double: (state) => state.count * 2,
         library(state) {
             return () => window[state.walletKey as any];
         },
@@ -47,15 +46,12 @@ export const useAppStore = defineStore('app', {
         loginUrl: () => '/login',
     },
     actions: {
-        logout() {
+        async logout() {
             this.$patch({
                 authorization: (useCookie('authorization').value = ''),
-                walletKey: (useCookie('wallet-key').value = ''),
-                address: '',
-                chainId: undefined,
-                chainType: '',
                 user: undefined,
             });
+            await this.logoutWallet();
             navigateTo(this.loginUrl);
         },
         login(user: any) {
@@ -63,15 +59,32 @@ export const useAppStore = defineStore('app', {
                 user,
                 authorization: (useCookie('authorization').value = user?.token || ''),
             });
+            navigateTo(this.homeUrl);
         },
-        loginWallet() {},
-        logoutWallet() {},
+        loginWallet() {
+            if (this.address && this.walletKey) {
+                this.$patch({
+                    walletToken: (useCookie('wallet-token').value = [
+                        this.address,
+                        this.walletKey,
+                    ].join('_')),
+                });
+            }
+        },
+        logoutWallet() {
+            this.$patch({
+                walletToken: (useCookie('wallet-token').value = ''),
+                walletKey: '',
+                address: '',
+                chainId: undefined,
+                chainType: '',
+            });
+        },
         async getUserInfo() {
             const { data } = await useHttp.get('/customer/info');
             const user: any = data.value?.data;
             this.$patch({
                 user,
-                authorization: useCookie('authorization').value || '',
             });
             return user;
         },
@@ -80,15 +93,12 @@ export const useAppStore = defineStore('app', {
                 return this.chainList;
             }
             const { data } = await useHttp.get<ChainModel[]>('/chain/list');
-            const result: ChainModel[] | undefined = data.value?.data;
+            const result: ChainModel[] | undefined = data.value.data;
             this.$patch({
                 chainType: result?.[0].chainType ?? '',
                 chainList: result ?? [],
             });
             return result;
-        },
-        increment() {
-            this.count++;
         },
     },
 });

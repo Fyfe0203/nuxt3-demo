@@ -20,10 +20,6 @@ export function useWalletMetaMask() {
     };
 
     const bindEvent = async (provider: any) => {
-        const account = await provider.request({ method: 'eth_accounts' });
-        await handleNewAccounts(account);
-        await handlenNewChainId(+provider.chainId);
-
         provider.on('accountsChanged', handleNewAccounts);
         provider.on('chainChanged', async (chainId: any) => {
             await provider.request({ method: 'eth_chainId' });
@@ -56,22 +52,14 @@ export function useWalletMetaMask() {
             detectedProvider;
 
         if (provider) {
-            window[WalletKey] = provider;
-            await bindEvent(provider);
-            await connectWallet();
+            return (window[WalletKey] = provider);
         } else {
             if (isMobile()) {
                 // https://metamask.app.link/dapp/www.baidu.com
-                return window.open(
-                    'https://metamask.app.link/dapp/' + location.href.split('://')[1]
-                );
+                window.open('https://metamask.app.link/dapp/' + location.href.split('://')[1]);
+                return;
             }
             window.open('https://metamask.io/');
-
-            // 没安装
-            store.$patch({
-                walletKey: undefined,
-            });
         }
     };
 
@@ -87,22 +75,23 @@ export function useWalletMetaMask() {
 
     // connect wallet
     const connectWallet = async () => {
-        store.$patch({
-            walletKey: WalletKey,
-        });
         try {
-            const provider: any = window[WalletKey];
-            if (provider) {
-                const newAccounts = await provider.request({ method: 'eth_requestAccounts' });
-                await handleNewAccounts(newAccounts);
-                await handlenNewChainId(provider.chainId);
-            } else {
-                await initWallet();
+            let provider: any = window[WalletKey];
+            if (!provider) {
+                provider = await initWallet();
+                await bindEvent(provider);
             }
+
+            const account = await provider.request({ method: 'eth_accounts' });
+            await handleNewAccounts(account);
+            await handlenNewChainId(+provider.chainId);
+            store.$patch({
+                walletKey: WalletKey,
+            });
         } catch (error) {
             console.error('connectWallet', error);
         }
     };
 
-    return { init: connectWallet, kill: disConnect };
+    return { init: connectWallet, kill: disConnect, bindEvent, initWallet };
 }

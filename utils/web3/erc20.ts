@@ -1,9 +1,8 @@
 import { useAppStore } from '@/stores/app';
 import ABI_TOKEN from './TOKEN_ABI.json';
-import Web3 from 'web3';
 
 export const getWeb3 = (provider: any) => {
-    return new Web3(getProvider(provider));
+    return new window.Web3(getProvider(provider));
 };
 
 export const getProvider = (provider: any) => {
@@ -11,7 +10,7 @@ export const getProvider = (provider: any) => {
     if (!p) {
         const store = useAppStore();
         const u = store.selectChain?.rpcUrls;
-        u && (p = new Web3.providers.HttpProvider(u));
+        u && (p = new window.Web3.providers.HttpProvider(u));
     }
     return p || (window.ethereum?.providers?.find((i: any) => i.isMetaMask) ?? window.ethereum);
 };

@@ -1,8 +1,9 @@
-import { ElMessage } from 'element-plus';
 import type { FetchResponse } from 'ofetch';
 import type { Ref } from 'vue';
-import type { UseFetchOptions } from '#app';
+import type { UseFetchOptions, AsyncData } from '#app';
+import { ElMessage } from 'element-plus';
 import { useAppStore } from '~/stores/app';
+import qs from 'qs';
 
 export interface ResOptions<T> {
     data: T;
@@ -33,6 +34,7 @@ function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<R
         404: () => err('服务器资源不存在'),
         500: () => err('服务器内部错误'),
         403: () => err('没有权限访问该资源'),
+        '-1': () => err('内部错误'),
         401: () => {
             err('登录状态已过期，需要重新登录');
             appStore.logout();
@@ -41,46 +43,59 @@ function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<R
     handleMap[response.status] ? handleMap[response.status]() : err('未知错误！');
 }
 
-function fetch<T>(url: UrlType, option: any) {
-    return useFetch<ResOptions<T>>(url, {
-        // 请求拦截器
-        onRequest({ options }) {
-            // get方法传递数组形式参数
-            // 添加baseURL,nuxt3环境变量要从useRuntimeConfig里面取
-            const {
-                public: { apiBase },
-            } = useRuntimeConfig();
+function fetch<T>(url: UrlType, option: any): Promise<AsyncData<ResOptions<T>, Error>> {
+    return new Promise((resolve, reject) => {
+        useFetch<ResOptions<T>>(url, {
+            // 请求拦截器
+            onRequest({ options }) {
+                // get方法传递数组形式参数
+                // 添加baseURL,nuxt3环境变量要从useRuntimeConfig里面取
+                const {
+                    public: { apiBase },
+                } = useRuntimeConfig();
 
-            options.baseURL = String(url).includes('://') ? '' : apiBase;
-            // 添加请求头,没登录不携带token
-            // const appStore = useAppStore();
-            // if (appStore.authorization) {
-            //     options.headers = new Headers(options.headers || {});
-            //     options.headers.set('Authorization', appStore.authorization);
-            // }
-        },
-        // 响应拦截
-        onResponse({ response }) {
-            const res = response._data || {};
-            // 在这里判断错误
-            if (response.status !== 200 || res.code !== 0) {
+                options.baseURL = String(url).includes('://') ? '' : apiBase;
+                // 添加请求头,没登录不携带token
+                const store = useAppStore();
+                options.headers = new Headers(options.headers || {});
+                if (store.address) {
+                    options.headers.set('Address', store.address);
+                }
+                if (store.authorization) {
+                    options.headers.set('Authorization', store.authorization);
+                }
+            },
+            // 响应拦截
+            onResponse({ response }) {
+                const res = response._data || {};
+                // 在这里判断错误
+                if (response.status !== 200 || res.code !== 0) {
+                    handleError<T>(response);
+                }
+            },
+            // 错误处理
+            onResponseError({ response }) {
                 handleError<T>(response);
-                return Promise.reject(response);
-            }
-        },
-        // 错误处理
-        onResponseError({ response }) {
-            handleError<T>(response);
-            return Promise.reject(response?._data ?? null);
-        },
-        // 合并参数
-        ...option,
+            },
+            // 合并参数
+            ...option,
+        })
+            .then((res) => {
+                const { data } = res;
+                if (data.value?.code === 0) {
+                    // res => { data:T, pending, refresh, error ... } => AsyncData
+                    resolve(res as AsyncData<ResOptions<T>, Error>);
+                } else {
+                    reject(data.value);
+                }
+            })
+            .catch(reject);
     });
 }
 
 function fixFormHeader(headers: any) {
     headers = headers || {};
-    headers['Content-type'] = 'application/x-www-form-urlencoded';
+    headers['Content-type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
     return headers;
 }
 
@@ -97,7 +112,7 @@ export const useHttp = {
     postForm: <T>(url: UrlType, body?: any, option?: HttpOption<T>) => {
         return fetch<T>(url, {
             method: 'post',
-            body,
+            body: qs.stringify(body),
             ...option,
             headers: fixFormHeader(option?.headers),
         });

@@ -45,7 +45,7 @@ async function signAddress() {
         random,
         sign,
     });
-    await store.login(data);
+    await store.login(data.value?.data);
 }
 
 function useWalletList(params: any, dialogCallback: Function) {
@@ -65,18 +65,18 @@ function useWalletList(params: any, dialogCallback: Function) {
         }
         await store.loginWallet();
         await store.getUserInfo();
-        dialogCallback && dialogCallback(address);
+        await dialogCallback?.(address);
     }
 
     async function loginFun(i: any, callback: Function) {
         if (i.disabled) return;
         try {
             i.loading = true;
-            await sleep(1000);
             await callback();
+            await sleep(1000);
             await loginCallback(!!params?._sign);
-        } catch (e) {
-            console.log('connect wallet: ', e);
+        } catch (e: any) {
+            console.log('connect wallet: ', e.message || e);
             store.logoutWallet();
         } finally {
             i.loading = false;

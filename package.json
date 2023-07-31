@@ -23,6 +23,7 @@
         "@nuxtjs/stylelint-module": "^5.1.0",
         "@nuxtjs/tailwindcss": "^6.7.2",
         "@types/node": "^18",
+        "@types/qs": "^6.9.7",
         "eslint": "^8.45.0",
         "nuxt": "^3.6.5",
         "nuxt-icons": "^3.2.1",
@@ -42,6 +43,7 @@
         "@pinia/nuxt": "^0.4.11",
         "element-plus": "^2.3.8",
         "pinia": "^2.1.4",
-        "web3": "^4.0.3"
+        "qs": "^6.11.2",
+        "web3": "^1.10.0"
     }
 }
