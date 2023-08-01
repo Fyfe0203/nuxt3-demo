@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-26 14:44:47
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-31 15:28:46
+ * @LastEditTime: 2023-07-31 16:09:19
  * @Description:
  * @FilePath: /nuxt3-demo/stores/app.ts
  */
@@ -64,10 +64,7 @@ export const useAppStore = defineStore('app', {
         loginWallet() {
             if (this.address && this.walletKey) {
                 this.$patch({
-                    walletToken: (useCookie('wallet-token').value = [
-                        this.address,
-                        this.walletKey,
-                    ].join('_')),
+                    walletToken: (useCookie('wallet-token').value = [this.address, this.walletKey].join('_')),
                 });
             }
         },
@@ -102,3 +99,5 @@ export const useAppStore = defineStore('app', {
         },
     },
 });
+
+// if (import.meta.hot) import.meta.hot.accept(acceptHMRUpdate(useAppStore, import.meta.hot));

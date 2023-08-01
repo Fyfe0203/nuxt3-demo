@@ -3,7 +3,7 @@
  * @Date: 2023-07-28 10:43:47
  * @LastEditors: fyfe0203 freeser@live.cn
  * @LastEditTime: 2023-07-28 10:43:50
- * @Description: 
+ * @Description:
  * @FilePath: /nuxt3-demo/pages/secret.vue
 -->
 <template>

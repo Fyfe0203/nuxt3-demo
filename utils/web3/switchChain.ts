@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-28 16:33:52
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-28 16:43:28
+ * @LastEditTime: 2023-08-01 14:31:07
  * @Description:
  * @FilePath: /nuxt3-demo/utils/web3/switchChain.ts
  */
@@ -18,7 +18,7 @@ interface ChainInfo {
     readonly nativeCurrency: {
         name: string; // 'Goerli ETH',
         symbol: string; // 'gorETH',
-        decimals: number; //18,
+        decimals: number; // 18,
     };
 }
 

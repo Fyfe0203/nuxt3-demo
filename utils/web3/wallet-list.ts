@@ -1,8 +1,8 @@
-import { useAppStore } from '@/stores/app';
-import { sleep } from '@/utils';
+import { switchToNetwork } from './switchChain';
 import { useWalletMetaMask } from './metamask';
 import { personalSignAsync } from './erc20';
-import { switchToNetwork } from './switchChain';
+import { sleep } from '@/utils';
+import { useAppStore } from '@/stores/app';
 
 const WalletKeys = {
     METAMASK: 'METAMASK',
@@ -76,7 +76,7 @@ function useWalletList(params: any, dialogCallback: Function) {
             await sleep(1000);
             await loginCallback(!!params?._sign);
         } catch (e: any) {
-            console.log('connect wallet: ', e.message || e);
+            console.log('connect wallet: ', e?.message || e);
             store.logoutWallet();
         } finally {
             i.loading = false;

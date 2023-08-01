@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-07-20 16:21:30
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-28 13:31:14
+ * @LastEditTime: 2023-08-01 09:54:34
  * @Description:
  * @FilePath: /nuxt3-demo/composables/README.md
 -->
@@ -101,4 +101,47 @@ fetch请求方式
 useApi().login.getUserInfo();
 // 直接请求
 const { data } = await useHttp.postForm('/banner/list', { type: 1 });
+```
+
+https://vueuse.org/core/useElementSize/
+
+很多方便的函数方法如：`const { width, height } = useElementSize(el)`
+
+```vue
+<template>
+    <div ref="el">
+        {{ text }}
+    </div>
+</template>
+
+<script>
+    import { ref } from 'vue';
+    import { useResizeObserver } from '@vueuse/core';
+
+    export default {
+        setup() {
+            const el = ref(null);
+            const text = ref('');
+
+            useResizeObserver(el, (entries) => {
+                const entry = entries[0];
+                const { width, height } = entry.contentRect;
+                text.value = `width: ${width}, height: ${height}`;
+            });
+
+            return {
+                el,
+                text,
+            };
+        },
+    };
+</script>
+```
+
+```js
+import { useEventListener } from '@vueuse/core';
+
+useEventListener(document, 'visibilitychange', (evt) => {
+    console.log(evt);
+});
 ```

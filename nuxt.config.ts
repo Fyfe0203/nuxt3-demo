@@ -2,12 +2,16 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-22 13:50:00
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-28 13:23:00
+ * @LastEditTime: 2023-08-01 14:46:05
  * @Description:
  * @FilePath: /nuxt3-demo/nuxt.config.ts
  */
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import IconsResolver from 'unplugin-icons/resolver';
 import { createRuntimeConfig } from './build';
 
 export default defineNuxtConfig({
@@ -15,15 +19,23 @@ export default defineNuxtConfig({
     ssr: true,
     app: {
         head: {
+            title: 'Nuxt 3 测试项目',
             charset: 'utf-8',
-            viewport: 'width=device-width, initial-scale=1',
+            meta: [
+                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: 'ElementPlus + Nuxt3',
+                },
+            ],
             link: [
                 { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
                 { rel: 'stylesheet', type: 'text/css', href: '/theme.css' },
             ],
         },
     },
-    css: ['@/assets/css/main.pcss'],
+    css: ['element-plus/theme-chalk/dark/css-vars.css', '@/assets/css/main.pcss'],
     runtimeConfig: createRuntimeConfig(),
     modules: [
         '@nuxtjs/tailwindcss',
@@ -60,7 +72,7 @@ export default defineNuxtConfig({
         [
             '@nuxtjs/eslint-module',
             {
-                /* module options */
+                // cache: false,
             },
         ],
         [
@@ -87,5 +99,23 @@ export default defineNuxtConfig({
         plugins: {
             'postcss-color-gray': {},
         },
+    },
+    build: {
+        transpile: process.env.npm_lifecycle_event === 'build' ? ['element-plus'] : [],
+    },
+    vite: {
+        plugins: [
+            AutoImport({
+                resolvers: [ElementPlusResolver(), IconsResolver()],
+            }),
+            Components({
+                dts: true,
+                resolvers: [
+                    ElementPlusResolver({
+                        importStyle: false,
+                    }),
+                ],
+            }),
+        ],
     },
 });

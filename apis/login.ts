@@ -2,9 +2,9 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-27 11:21:07
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-27 11:24:44
+ * @LastEditTime: 2023-08-01 13:09:58
  * @Description:
- * @FilePath: /nuxt3-demo/apis/index.ts
+ * @FilePath: /nuxt3-demo/apis/login.ts
  */
 import { useHttp, type HttpOption } from '~/composables/useHttp';
 
@@ -60,14 +60,14 @@ enum Api {
 }
 
 // option就是useFetch的选项参数
-export async function login(params: LoginParams, option?: HttpOption<LoginResultModel>) {
+export function login(params: LoginParams, option?: HttpOption<LoginResultModel>) {
     return useHttp.post<LoginResultModel>(Api.login, params, option);
 }
 
-export async function logout(option?: HttpOption<any>) {
+export function logout(option?: HttpOption<any>) {
     return useHttp.post<void>(Api.logout, {}, option);
 }
 
-export async function getUserInfo(option?: HttpOption<any>) {
+export function getUserInfo(option?: HttpOption<any>) {
     return useHttp.get(Api.getUserInfo, {}, option);
 }

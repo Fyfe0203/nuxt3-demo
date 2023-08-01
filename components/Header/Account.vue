@@ -2,8 +2,8 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-31 15:33:21
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-31 15:40:17
- * @Description: 
+ * @LastEditTime: 2023-08-01 14:20:21
+ * @Description:
  * @FilePath: /nuxt3-demo/components/Header/Account.vue
 -->
 <template>
@@ -24,7 +24,7 @@
 
     const isWalletLogin = computed(() => store.walletToken);
     watchEffect(() => {
-        if (isWalletLogin.value && !store.address) {
+        if (isWalletLogin.value && !store.address && process.client) {
             const { WalletList } = useWalletList();
             const [, walletKey] = store.walletToken.split('_');
             const wallet = WalletList.find((i) => i.key === walletKey);

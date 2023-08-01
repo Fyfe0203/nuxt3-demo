@@ -11,19 +11,8 @@ import { useAppStore } from '@/stores/app';
 export default defineNuxtPlugin((nuxtApp: any) => {
     // process.client
 
-    nuxtApp.$i18n.onBeforeLanguageSwitch = (
-        oldLocale: any,
-        newLocale: any,
-        isInitialSetup: any
-    ) => {
-        console.log(
-            'onBeforeLanguageSwitch',
-            oldLocale,
-            'newLocale',
-            newLocale,
-            'isInitialSetup',
-            isInitialSetup
-        );
+    nuxtApp.$i18n.onBeforeLanguageSwitch = (oldLocale: any, newLocale: any, isInitialSetup: any) => {
+        console.log('onBeforeLanguageSwitch', oldLocale, 'newLocale', newLocale, 'isInitialSetup', isInitialSetup);
     };
 
     // 应用于所有组件

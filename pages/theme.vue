@@ -3,7 +3,7 @@
  * @Date: 2023-07-27 16:13:35
  * @LastEditors: fyfe0203 freeser@live.cn
  * @LastEditTime: 2023-07-28 10:58:54
- * @Description: 
+ * @Description:
  * @FilePath: /nuxt3-demo/pages/theme.vue
 -->
 <template>

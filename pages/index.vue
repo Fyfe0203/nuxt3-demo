@@ -2,12 +2,12 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-25 13:08:39
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-31 14:00:58
- * @Description: 
+ * @LastEditTime: 2023-07-31 17:50:42
+ * @Description:
  * @FilePath: /nuxt3-demo/pages/index.vue
 -->
 <template>
-    <div class="min-h-[30vh] p-10 bg-[#ccddee]">
+    <div class="min-h-[30vh] p-10">
         <div class="test">
             PostCSS
             <span class="test_gray">Color Gray</span>
@@ -41,7 +41,7 @@
             element-plus使用：
             <br />
             <el-button @click="ElMessage('hello')">button</el-button>
-            <ElButton :icon="ElIconEditPen" type="success">button</ElButton>
+            <ElButton type="success">button</ElButton>
             <LazyElButton type="warning">lazy button</LazyElButton>
         </div>
 

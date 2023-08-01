@@ -8,3 +8,10 @@ node_modules
 dist
 public
 .DS_Store
+.vscode
+.idea
+/public
+/docs
+.husky
+.local
+/bin

@@ -2,8 +2,8 @@ import type { FetchResponse } from 'ofetch';
 import type { Ref } from 'vue';
 import type { UseFetchOptions, AsyncData } from '#app';
 import { ElMessage } from 'element-plus';
+import { stringify } from 'qs';
 import { useAppStore } from '~/stores/app';
-import qs from 'qs';
 
 export interface ResOptions<T> {
     data: T;
@@ -112,7 +112,7 @@ export const useHttp = {
     postForm: <T>(url: UrlType, body?: any, option?: HttpOption<T>) => {
         return fetch<T>(url, {
             method: 'post',
-            body: qs.stringify(body),
+            body: stringify(body),
             ...option,
             headers: fixFormHeader(option?.headers),
         });

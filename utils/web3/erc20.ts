@@ -1,5 +1,5 @@
-import { useAppStore } from '@/stores/app';
 import ABI_TOKEN from './TOKEN_ABI.json';
+import { useAppStore } from '@/stores/app';
 
 export const getWeb3 = (provider: any) => {
     return new window.Web3(getProvider(provider));
@@ -35,7 +35,7 @@ export const getBalanceEth = async (provider: any, userAddress: string) => {
     try {
         return await getWeb3(provider).eth.getBalance(userAddress.toLowerCase());
     } catch (e: any) {
-        console.error('getBalance: ' + (e.message || e));
+        console.error('getBalance: ' + (e?.message || e));
         return '0';
     }
 };
@@ -48,7 +48,7 @@ export const getBalance = async (provider: any, tokenAddress: string, userAddres
     try {
         return await contract?.methods.balanceOf(userAddress.toLowerCase()).call();
     } catch (e: any) {
-        console.error('balanceOf: ' + (e.message || e));
+        console.error('balanceOf: ' + (e?.message || e));
         return '0';
     }
 };
@@ -113,7 +113,7 @@ export async function signTypedDataAsync(message: string) {
             )
         )) as SiganTure;
     } catch (error: any) {
-        throw new Error(error.message || error);
+        throw new Error(error?.message || error);
     }
 
     const error = signature.error;

@@ -2,8 +2,8 @@
  * @Author: freeser freeser@126.com
  * @Date: 2022-11-21 18:55:41
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-31 13:57:43
- * @Description: 
+ * @LastEditTime: 2023-08-01 14:27:10
+ * @Description:
  * @FilePath: /nuxt3-demo/components/Login/WalletList.vue
 -->
 <template>
@@ -11,9 +11,7 @@
         <div v-for="i in list" :key="i.key">
             <div
                 class="p-5 flex items-center gap-5 wallet-item"
-                :class="
-                    i.disabled ? 'cursor-not-allowed opacity-60' : 'cursor-pointer hover:opacity-80'
-                "
+                :class="i.disabled ? 'cursor-not-allowed opacity-60' : 'cursor-pointer hover:opacity-80'"
                 @click="i.login(i)"
             >
                 <nuxt-icon
@@ -44,7 +42,8 @@
             },
         },
         setup(props) {
-            const { WalletList } = useWalletList(props.params, props.callback);
+            const { params, callback } = toRefs(props);
+            const { WalletList } = useWalletList(params, callback);
             return {
                 list: reactive(WalletList),
             };

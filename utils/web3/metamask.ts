@@ -1,3 +1,11 @@
+/*
+ * @Author: fyfe0203 freeser@live.cn
+ * @Date: 2023-07-28 17:33:32
+ * @LastEditors: fyfe0203 freeser@live.cn
+ * @LastEditTime: 2023-08-01 14:06:18
+ * @Description:
+ * @FilePath: /nuxt3-demo/utils/web3/metamask.ts
+ */
 import detectEthereumProvider from '@metamask/detect-provider';
 import { isMobile } from '../index';
 import { WalletKeys } from './wallet-list';
@@ -19,7 +27,7 @@ export function useWalletMetaMask() {
         });
     };
 
-    const bindEvent = async (provider: any) => {
+    const bindEvent = (provider: any) => {
         provider.on('accountsChanged', handleNewAccounts);
         provider.on('chainChanged', async (chainId: any) => {
             await provider.request({ method: 'eth_chainId' });
@@ -47,9 +55,7 @@ export function useWalletMetaMask() {
     // init wallet
     const initWallet = async () => {
         const detectedProvider: any = await detectEthereumProvider();
-        const provider =
-            detectedProvider?.providers?.find((provider: any) => provider.isMetaMask) ??
-            detectedProvider;
+        const provider = detectedProvider?.providers?.find((provider: any) => provider.isMetaMask) ?? detectedProvider;
 
         if (provider) {
             return (window[WalletKey] = provider);
