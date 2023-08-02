@@ -2,12 +2,20 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-31 17:19:19
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 13:58:43
+ * @LastEditTime: 2023-08-02 15:28:44
  * @Description:
  * @FilePath: /nuxt3-demo/pages/dialog.vue
 -->
 <template>
     <div class="px-5">
+        <el-carousel height="150px">
+            <el-carousel-item v-for="item in 4" :key="item">
+                <h3 class="small justify-center" text="2xl">{{ item }}</h3>
+            </el-carousel-item>
+        </el-carousel>
+        <el-tooltip content="Bottom center" trigger="click">
+            <el-button>Customized theme</el-button>
+        </el-tooltip>
         <ElButton type="primary" @click="openDialog">click to open the Dialog</ElButton>
     </div>
 </template>
@@ -42,5 +50,21 @@
 <style scoped>
     .dialog-footer button:first-child {
         margin-right: 10px;
+    }
+
+    .el-carousel__item h3 {
+        color: #475669;
+        opacity: 0.75;
+        line-height: 150px;
+        margin: 0;
+        text-align: center;
+    }
+
+    .el-carousel__item:nth-child(2n) {
+        background-color: #99a9bf;
+    }
+
+    .el-carousel__item:nth-child(2n + 1) {
+        background-color: #d3dce6;
     }
 </style>

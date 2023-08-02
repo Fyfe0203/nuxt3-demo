@@ -2,16 +2,16 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-22 13:50:00
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 13:57:02
+ * @LastEditTime: 2023-08-02 14:38:53
  * @Description:
  * @FilePath: /nuxt3-demo/nuxt.config.ts
  */
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import AutoImport from 'unplugin-auto-import/vite';
-import Components from 'unplugin-vue-components/vite';
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
-import IconsResolver from 'unplugin-icons/resolver';
+// import AutoImport from 'unplugin-auto-import/vite';
+// import Components from 'unplugin-vue-components/vite';
+// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+// import IconsResolver from 'unplugin-icons/resolver';
 import { createRuntimeConfig } from './build';
 
 export default defineNuxtConfig({
@@ -109,23 +109,23 @@ export default defineNuxtConfig({
         },
     },
     build: {
-        transpile: process.env.npm_lifecycle_event === 'build' ? ['element-plus'] : [],
+        transpile: ['element-plus/es'],
     },
-    vite: {
-        plugins: [
-            AutoImport({
-                resolvers: [ElementPlusResolver(), IconsResolver()],
-            }),
-            Components({
-                dts: true,
-                resolvers: [
-                    ElementPlusResolver({
-                        importStyle: true,
-                    }),
-                ],
-            }),
-        ],
-    },
+    // vite: {
+    //     plugins: [
+    //         AutoImport({
+    //             resolvers: [ElementPlusResolver(), IconsResolver()],
+    //         }),
+    //         Components({
+    //             dts: true,
+    //             resolvers: [
+    //                 ElementPlusResolver({
+    //                     importStyle: true,
+    //                 }),
+    //             ],
+    //         }),
+    //     ],
+    // },
     // typescript: {
     //     tsConfig: {
     //         compilerOptions: {
