@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-08-02 09:46:44
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 12:05:46
+ * @LastEditTime: 2023-08-02 18:31:29
  * @Description: 
  * @FilePath: /nuxt3-demo/components/Dialog/Test.vue
 -->
@@ -15,7 +15,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
     const props = defineProps({
         id: {
             type: Number,

@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-22 13:50:00
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 14:38:53
+ * @LastEditTime: 2023-08-02 15:36:16
  * @Description:
  * @FilePath: /nuxt3-demo/nuxt.config.ts
  */
@@ -108,6 +108,8 @@ export default defineNuxtConfig({
             'postcss-color-gray': {},
         },
     },
+    // const lifecycle = process.env.npm_lifecycle_event
+    // build: { transpile: [(lifecycle === "build" || lifecycle === "generate" ? "element-plus" : "element-plus/es")], },
     build: {
         transpile: ['element-plus/es'],
     },

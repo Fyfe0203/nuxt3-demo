@@ -2,7 +2,7 @@
  * @Author: freeser freeser@126.com
  * @Date: 2022-11-21 18:55:41
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-01 14:27:10
+ * @LastEditTime: 2023-08-02 18:27:16
  * @Description:
  * @FilePath: /nuxt3-demo/components/Login/WalletList.vue
 -->
@@ -43,7 +43,7 @@
         },
         setup(props) {
             const { params, callback } = toRefs(props);
-            const { WalletList } = useWalletList(params, callback);
+            const { WalletList } = useWalletList(unref(params), unref(callback));
             return {
                 list: reactive(WalletList),
             };

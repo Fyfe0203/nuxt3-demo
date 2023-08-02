@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-08-02 09:50:36
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 11:17:16
+ * @LastEditTime: 2023-08-02 18:31:23
  * @Description: 
  * @FilePath: /nuxt3-demo/components/Dialog/Test2.vue
 -->
@@ -14,7 +14,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
     const emit = defineEmits(['close']);
     const closeDialog = () => {
         emit('close', 1, 2, 34);
