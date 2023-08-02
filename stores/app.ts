@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-26 14:44:47
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-31 16:09:19
+ * @LastEditTime: 2023-08-01 16:21:44
  * @Description:
  * @FilePath: /nuxt3-demo/stores/app.ts
  */
@@ -23,13 +23,13 @@ interface State {
 
 export const useAppStore = defineStore('app', {
     state: (): State => ({
-        authorization: useCookie('authorization').value || '',
+        authorization: '',
         address: '',
         chainId: undefined,
         chainType: '',
         chainList: [],
         walletKey: '',
-        walletToken: useCookie('wallet-token').value || '',
+        walletToken: '',
         user: undefined,
     }),
     getters: {
@@ -48,7 +48,7 @@ export const useAppStore = defineStore('app', {
     actions: {
         async logout() {
             this.$patch({
-                authorization: (useCookie('authorization').value = ''),
+                authorization: '',
                 user: undefined,
             });
             await this.logoutWallet();
@@ -57,20 +57,20 @@ export const useAppStore = defineStore('app', {
         login(user: any) {
             this.$patch({
                 user,
-                authorization: (useCookie('authorization').value = user?.token || ''),
+                authorization: user?.token || '',
             });
             navigateTo(this.homeUrl);
         },
         loginWallet() {
             if (this.address && this.walletKey) {
                 this.$patch({
-                    walletToken: (useCookie('wallet-token').value = [this.address, this.walletKey].join('_')),
+                    walletToken: [this.address, this.walletKey].join('_'),
                 });
             }
         },
         logoutWallet() {
             this.$patch({
-                walletToken: (useCookie('wallet-token').value = ''),
+                walletToken: '',
                 walletKey: '',
                 address: '',
                 chainId: undefined,
@@ -97,6 +97,10 @@ export const useAppStore = defineStore('app', {
             });
             return result;
         },
+    },
+    persist: {
+        // storage: localStorage,
+        paths: ['authorization', 'walletToken'],
     },
 });
 

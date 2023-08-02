@@ -758,7 +758,7 @@
   resolved "https://registry.npmmirror.com/@esbuild/win32-x64/-/win32-x64-0.18.15.tgz#41ee66253566124cc44bce1b4c760a87d9f5bf1d"
   integrity sha512-imUxH9a3WJARyAvrG7srLyiK73XdX83NXQkjKvQ+7vPh3ZxoLrzvPkQKKw2DwZ+RV2ZB6vBfNHP8XScAmQC3aA==
 
-"@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.3.0", "@eslint-community/eslint-utils@^4.4.0":
+"@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"
   resolved "https://registry.npmmirror.com/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz#a23514e8fb9af1269d5f7788aa556798d61c6b59"
   integrity sha512-1/sA4dwrzBAyeUoQ6oxahHKmrZvsnLCg4RfxW3ZFGGmQkSNQPFNLV9CUEFQP1x9EYXHTo5p6xdhZM1Ne9p/AfA==
@@ -1418,18 +1418,7 @@
     which "^3.0.1"
     ws "^8.13.0"
 
-"@nuxt/eslint-config@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.npmmirror.com/@nuxt/eslint-config/-/eslint-config-0.1.1.tgz#99058b84f92aa2c67028a19e6c66cdf5beb9f5f6"
-  integrity sha512-znm1xlbhldUubB2XGx6Ca5uarwlIieKf0o8CtxtF6eEauDbpa3T2p3JnTcdguMW2nj1YPneoGmhshANfOlghiQ==
-  dependencies:
-    "@rushstack/eslint-patch" "^1.2.0"
-    "@typescript-eslint/eslint-plugin" "^5.45.1"
-    "@typescript-eslint/parser" "^5.45.1"
-    eslint-plugin-vue "^9.8.0"
-    typescript "^4.9.3"
-
-"@nuxt/kit@3.6.5", "@nuxt/kit@^3.0.0", "@nuxt/kit@^3.4.1", "@nuxt/kit@^3.5.0", "@nuxt/kit@^3.5.3", "@nuxt/kit@^3.6.1", "@nuxt/kit@^3.6.5":
+"@nuxt/kit@3.6.5", "@nuxt/kit@^3.0.0", "@nuxt/kit@^3.2.3", "@nuxt/kit@^3.4.1", "@nuxt/kit@^3.5.0", "@nuxt/kit@^3.5.3", "@nuxt/kit@^3.6.1", "@nuxt/kit@^3.6.5":
   version "3.6.5"
   resolved "https://registry.npmmirror.com/@nuxt/kit/-/kit-3.6.5.tgz#208777acdc2a09109fbe4209aad736874eb9a3f5"
   integrity sha512-uBI5I2Zx6sk+vRHU+nBmifwxg/nyXCGZ1g5hUKrUfgv1ZfiKB8JkN5T9iRoduDOaqbwM6XSnEl1ja73iloDcrw==
@@ -1664,6 +1653,15 @@
     ufo "^1.1.2"
     uncrypto "^0.1.3"
 
+"@pinia-plugin-persistedstate/nuxt@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.npmmirror.com/@pinia-plugin-persistedstate/nuxt/-/nuxt-1.1.1.tgz#53d1f26fa405aa20803da6d710c6777ab50445f2"
+  integrity sha512-b6ZNP3Re8COmfZEpj4KQmbp2TuDKrLggDFLZa8FiJF68xE/oCsPXIuXUvAt8E4ht/5sq4Z/grlA+iGXaI2aeKQ==
+  dependencies:
+    "@nuxt/kit" "^3.2.3"
+    defu "^6.1.2"
+    pinia-plugin-persistedstate ">=3.1.0"
+
 "@pinia/nuxt@^0.4.11":
   version "0.4.11"
   resolved "https://registry.npmmirror.com/@pinia/nuxt/-/nuxt-0.4.11.tgz#1b3f728ae112d45deff5971376e05b8a8d64f720"
@@ -1784,11 +1782,6 @@
     "@types/estree" "^1.0.0"
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
-
-"@rushstack/eslint-patch@^1.2.0":
-  version "1.3.2"
-  resolved "https://registry.npmmirror.com/@rushstack/eslint-patch/-/eslint-patch-1.3.2.tgz#31b9c510d8cada9683549e1dbb4284cca5001faf"
-  integrity sha512-V+MvGwaHH03hYhY+k6Ef/xKd6RYlc4q8WBx+2ANmipHJcKuktNcI/NgEsJgdSUF6Lw32njT6OnrRsKYCdgHjYw==
 
 "@sideway/address@^4.1.3":
   version "4.1.4"
@@ -2047,7 +2040,7 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@typescript-eslint/eslint-plugin@^5.42.1", "@typescript-eslint/eslint-plugin@^5.45.1":
+"@typescript-eslint/eslint-plugin@^5.42.1":
   version "5.62.0"
   resolved "https://registry.npmmirror.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.62.0.tgz#aeef0328d172b9e37d9bab6dbc13b87ed88977db"
   integrity sha512-TiZzBSJja/LbhNPvk6yc0JrX9XqhQ0hdh6M2svYfsHGejaKFIAGd9MQ+ERIMzLGlN/kZoYIgdxFV0PuljTKXag==
@@ -2063,7 +2056,7 @@
     semver "^7.3.7"
     tsutils "^3.21.0"
 
-"@typescript-eslint/parser@^5.42.1", "@typescript-eslint/parser@^5.45.1":
+"@typescript-eslint/parser@^5.42.1":
   version "5.62.0"
   resolved "https://registry.npmmirror.com/@typescript-eslint/parser/-/parser-5.62.0.tgz#1b63d082d849a2fcae8a569248fbe2ee1b8a56c7"
   integrity sha512-VlJEV0fOQ7BExOsHYAGrgbEiZoi8D+Bl2+f6V2RrXerRSylnp+ZBHmPvaIa8cz0Ajx7WO7Z5RqfgYg7ED1nRhA==
@@ -4566,19 +4559,6 @@ eslint-plugin-vue@^9.16.1, eslint-plugin-vue@^9.7.0:
     postcss-selector-parser "^6.0.13"
     semver "^7.5.4"
     vue-eslint-parser "^9.3.1"
-    xml-name-validator "^4.0.0"
-
-eslint-plugin-vue@^9.8.0:
-  version "9.15.1"
-  resolved "https://registry.npmmirror.com/eslint-plugin-vue/-/eslint-plugin-vue-9.15.1.tgz#3c09e0edab444b5d4d9239a12a645a0e2e2ea5be"
-  integrity sha512-CJE/oZOslvmAR9hf8SClTdQ9JLweghT6JCBQNrT2Iel1uVw0W0OLJxzvPd6CxmABKCvLrtyDnqGV37O7KQv6+A==
-  dependencies:
-    "@eslint-community/eslint-utils" "^4.3.0"
-    natural-compare "^1.4.0"
-    nth-check "^2.0.1"
-    postcss-selector-parser "^6.0.9"
-    semver "^7.3.5"
-    vue-eslint-parser "^9.3.0"
     xml-name-validator "^4.0.0"
 
 eslint-scope@^5.1.1:
@@ -8209,6 +8189,11 @@ pify@^3.0.0:
   resolved "https://registry.npmmirror.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
   integrity sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==
 
+pinia-plugin-persistedstate@>=3.1.0:
+  version "3.2.0"
+  resolved "https://registry.npmmirror.com/pinia-plugin-persistedstate/-/pinia-plugin-persistedstate-3.2.0.tgz#9932ca2ae88aa6c0d6763bebc6447d7bd1f097d0"
+  integrity sha512-tZbNGf2vjAQcIm7alK40sE51Qu/m9oWr+rEgNm/2AWr1huFxj72CjvpQcIQzMknDBJEkQznCLAGtJTIcLKrKdw==
+
 pinia@>=2.1.0, pinia@^2.1.4:
   version "2.1.4"
   resolved "https://registry.npmmirror.com/pinia/-/pinia-2.1.4.tgz#a642adfe6208e10c36d3dc16184a91064788142a"
@@ -8571,7 +8556,7 @@ postcss-safe-parser@^6.0.0:
   resolved "https://registry.npmmirror.com/postcss-safe-parser/-/postcss-safe-parser-6.0.0.tgz#bb4c29894171a94bc5c996b9a30317ef402adaa1"
   integrity sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==
 
-postcss-selector-parser@^6.0.10, postcss-selector-parser@^6.0.11, postcss-selector-parser@^6.0.13, postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.0.5, postcss-selector-parser@^6.0.9:
+postcss-selector-parser@^6.0.10, postcss-selector-parser@^6.0.11, postcss-selector-parser@^6.0.13, postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.0.5:
   version "6.0.13"
   resolved "https://registry.npmmirror.com/postcss-selector-parser/-/postcss-selector-parser-6.0.13.tgz#d05d8d76b1e8e173257ef9d60b706a8e5e99bf1b"
   integrity sha512-EaV1Gl4mUEV4ddhDnv/xtj7sxwrwxdetHdWUGnT4VJQf+4d05v6lHYZr8N573k5Z0BViss7BDhfWtKS3+sfAqQ==
@@ -10286,10 +10271,10 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@^4.9.3:
-  version "4.9.5"
-  resolved "https://registry.npmmirror.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
-  integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
+typescript@^5.1.6:
+  version "5.1.6"
+  resolved "https://registry.npmmirror.com/typescript/-/typescript-5.1.6.tgz#02f8ac202b6dad2c0dd5e0913745b47a37998274"
+  integrity sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==
 
 ufo@^1.0.0, ufo@^1.1.1, ufo@^1.1.2:
   version "1.1.2"
@@ -10805,7 +10790,7 @@ vue-devtools-stub@^0.1.0:
   resolved "https://registry.npmmirror.com/vue-devtools-stub/-/vue-devtools-stub-0.1.0.tgz#a65b9485edecd4273cedcb8102c739b83add2c81"
   integrity sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==
 
-vue-eslint-parser@^9.3.0, vue-eslint-parser@^9.3.1:
+vue-eslint-parser@^9.3.1:
   version "9.3.1"
   resolved "https://registry.npmmirror.com/vue-eslint-parser/-/vue-eslint-parser-9.3.1.tgz#429955e041ae5371df5f9e37ebc29ba046496182"
   integrity sha512-Clr85iD2XFZ3lJ52/ppmUDG/spxQu6+MAeHXjjyI4I1NUYZ9xmenQp4N0oaHJhrA8OOxltCVxMRfANGa70vU0g==

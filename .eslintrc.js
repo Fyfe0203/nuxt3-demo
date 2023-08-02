@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-20 16:57:43
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-01 14:30:04
+ * @LastEditTime: 2023-08-02 10:17:40
  * @Description:
  * @FilePath: /nuxt3-demo/.eslintrc.js
  */
@@ -73,6 +73,8 @@ module.exports = {
         ],
         curly: 0,
         'space-before-function-paren': 0,
+        'no-trailing-spaces': 0,
+        '@typescript-eslint/no-inferrable-types': 0,
         'arrow-parens': ['error', 'always'],
     },
     overrides: [

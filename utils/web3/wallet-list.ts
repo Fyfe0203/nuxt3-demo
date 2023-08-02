@@ -60,12 +60,12 @@ function useWalletList(params: any, dialogCallback: Function) {
         }
 
         await switchChain();
-        if (needSign || !useCookie('authorization').value) {
+        if (needSign || !store.authorization) {
             await signAddress();
         }
         await store.loginWallet();
         await store.getUserInfo();
-        await dialogCallback?.(address);
+        typeof dialogCallback === 'function' && dialogCallback(address);
     }
 
     async function loginFun(i: any, callback: Function) {
@@ -76,7 +76,7 @@ function useWalletList(params: any, dialogCallback: Function) {
             await sleep(1000);
             await loginCallback(!!params?._sign);
         } catch (e: any) {
-            console.log('connect wallet: ', e?.message || e);
+            console.error('connect wallet: ', e);
             store.logoutWallet();
         } finally {
             i.loading = false;

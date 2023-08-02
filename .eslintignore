@@ -10,8 +10,9 @@ public
 .DS_Store
 .vscode
 .idea
-/public
-/docs
+docs
 .husky
 .local
-/bin
+bin
+types
+**/*.d.ts

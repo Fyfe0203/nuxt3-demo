@@ -22,6 +22,7 @@
         "@nuxtjs/i18n": "^8.0.0-beta.13",
         "@nuxtjs/stylelint-module": "^5.1.0",
         "@nuxtjs/tailwindcss": "^6.7.2",
+        "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
         "@types/node": "^18",
         "@types/qs": "^6.9.7",
         "eslint": "^8.45.0",
@@ -33,6 +34,7 @@
         "prettier": "^3.0.0",
         "stylelint": "^15.10.2",
         "stylelint-config-standard-vue": "^1.0.0",
+        "typescript": "^5.1.6",
         "unplugin-auto-import": "^0.16.6",
         "unplugin-icons": "^0.16.5",
         "unplugin-vue-components": "^0.25.1"

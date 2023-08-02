@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-27 11:15:03
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-28 16:22:25
+ * @LastEditTime: 2023-08-01 15:05:58
  * @Description:
  * @FilePath: /nuxt3-demo/types/module.d.ts
  */

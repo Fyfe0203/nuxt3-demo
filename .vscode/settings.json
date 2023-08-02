@@ -12,21 +12,15 @@
     //  #让prettier使用eslint的代码格式进行校验
     // "prettier.eslintIntegration": true,
     //  #去掉代码结尾的分号
-    "prettier.semi": false,
+    "prettier.semi": true,
     //  #使用单引号替代双引号
     "prettier.singleQuote": true,
     //  #让函数(名)和后面的括号之间加个空格
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
 
-    "eslint.enable": false,
-    "eslint.format.enable": true,
-    "volar-api.trace.server": "messages",
-    "volar-document.trace.server": "messages",
-    "volar-html.trace.server": "messages",
-    "volar.codeLens.scriptSetupTools": true,
-    "vetur.validation.script": false,
     "emmet.includeLanguages": {
-        "postcss": "css"
+        "postcss": "css",
+        "vue": "html"
     },
     "files.associations": {
         "*.css": "postcss",
@@ -34,5 +28,7 @@
         "*.postcss": "postcss"
     },
     "i18n-ally.localesPaths": ["locales"],
-    "i18n-ally.keystyle": "nested"
+    "i18n-ally.keystyle": "nested",
+    "javascript.format.semicolons": "insert",
+    "typescript.format.semicolons": "insert"
 }
