@@ -2,23 +2,23 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-20 16:57:43
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 10:17:40
+ * @LastEditTime: 2023-08-02 18:43:20
  * @Description:
  * @FilePath: /nuxt3-demo/.eslintrc.js
  */
 module.exports = {
     root: true,
-    // env: {
-    //     browser: true,
-    //     es2021: true,
-    // },
+    env: {
+        browser: true,
+        es2021: true,
+    },
     // parserOptions: {
     //     ecmaVersion: 13,
     //     parser: '@typescript-eslint/parser',
     //     sourceType: 'module',
     // },
     // If you're using TypeScript, follow Usage section by replacing @nuxtjs/eslint-config by @nuxtjs/eslint-config-typescript.
-    extends: ['@nuxtjs/eslint-config-typescript'], // 'prettier' // 'plugin:vue/vue3-recommended'
+    extends: ['@nuxtjs/eslint-config-typescript', 'plugin:vue/vue3-recommended'], // 'prettier' // 'plugin:vue/vue3-recommended'
 
     // plugins: ['prettier'],
     // add your custom rules here

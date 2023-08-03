@@ -2,16 +2,19 @@
     "name": "nuxt-app",
     "private": true,
     "scripts": {
+        "cz": "czg",
         "build": "nuxt build",
         "dev": "nuxt dev",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
+        "prepare": "husky install",
         "lint:js": "eslint --ext \".js,.vue\" --ignore-path .eslintignore .",
         "lint:style": "stylelint \"**/*.{css,scss,sass,html,vue,less}\" --ignore-path .eslintignore",
         "lint:prettier": "prettier --ignore-path .prettierignore --check .",
         "lint": "yarn lint:js && yarn lint:style && yarn lint:prettier",
-        "lintfix": "prettier --write --list-different . --ignore-path .eslintignore && yarn lint:js --fix && yarn lint:style --fix"
+        "lintfix": "prettier --write --list-different . --ignore-path .eslintignore && yarn lint:js --fix && yarn lint:style --fix",
+        "lint:lint-staged": "lint-staged"
     },
     "devDependencies": {
         "@element-plus/nuxt": "^1.0.5",
@@ -25,8 +28,13 @@
         "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
         "@types/node": "^18",
         "@types/qs": "^6.9.7",
+        "commitizen": "^4.3.0",
+        "cz-git": "^1.7.0",
+        "czg": "^1.7.0",
         "eslint": "^8.45.0",
         "eslint-plugin-vue": "^9.16.1",
+        "husky": "^8.0.3",
+        "lint-staged": "^13.2.3",
         "nuxt": "^3.6.5",
         "nuxt-icons": "^3.2.1",
         "postcss-color-gray": "5.0.0",
@@ -51,5 +59,10 @@
         "pinia": "^2.1.4",
         "qs": "^6.11.2",
         "web3": "^1.10.0"
+    },
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-git"
+        }
     }
 }
