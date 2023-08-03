@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-20 16:57:43
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-03 10:36:05
+ * @LastEditTime: 2023-08-03 11:50:33
  * @Description:
  * @FilePath: /nuxt3-demo/README.md
 -->
@@ -52,8 +52,6 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 # 提交规则
 
-全局安装的好处在于：在任何项目下都可以利用 `cz` 或 `git cz` 命令启动命令行工具，生成标准化 `commit message`
+可以利用 `czg` 或 `git czg` 命令启动命令行工具，生成标准化 `commit message`
 
-`npm install -g cz-git commitizen`
-
-`echo '{ "path": "cz-git", "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@1.7.0/docs/public/schema/cz-git.json" }' > ~/.czrc`
+`npm install -g czg`

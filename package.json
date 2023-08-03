@@ -29,7 +29,6 @@
         "@types/node": "^18",
         "@types/qs": "^6.9.7",
         "commitizen": "^4.3.0",
-        "cz-git": "^1.7.0",
         "czg": "^1.7.0",
         "eslint": "^8.45.0",
         "eslint-plugin-vue": "^9.16.1",

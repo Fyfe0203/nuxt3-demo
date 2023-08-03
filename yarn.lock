@@ -3941,11 +3941,6 @@ cz-conventional-changelog@3.3.0:
   optionalDependencies:
     "@commitlint/load" ">6.1.1"
 
-cz-git@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.npmmirror.com/cz-git/-/cz-git-1.7.0.tgz#3e70a5d8363b8e1a645329ee8431fd738ebbad4e"
-  integrity sha512-A9ix8zJtRfuj7aXrlS2K6SqrFy/9VcoHOeZKEYM0qG4h++9p4/vkeEjHpwxHN0S2ARtbmlKypjrhVkFtFnBG1Q==
-
 czg@^1.7.0:
   version "1.7.0"
   resolved "https://registry.npmmirror.com/czg/-/czg-1.7.0.tgz#f2c813427abd948884452a197fbd602a528c236f"
