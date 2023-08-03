@@ -17,6 +17,8 @@
         "lint:lint-staged": "lint-staged"
     },
     "devDependencies": {
+        "@commitlint/cli": "^17.6.7",
+        "@commitlint/config-conventional": "^17.6.7",
         "@element-plus/nuxt": "^1.0.5",
         "@nuxt/devtools": "^0.7.1",
         "@nuxtjs/color-mode": "^3.2.0",
@@ -44,7 +46,8 @@
         "typescript": "^5.1.6",
         "unplugin-auto-import": "^0.16.6",
         "unplugin-icons": "^0.16.5",
-        "unplugin-vue-components": "^0.25.1"
+        "unplugin-vue-components": "^0.25.1",
+        "wrap-ansi": "7.0.0"
     },
     "keywords": [
         "tailwindcss",
