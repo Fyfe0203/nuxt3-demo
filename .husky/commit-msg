@@ -1,11 +1,3 @@
-###
- # @Author: fyfe0203 freeser@live.cn
- # @Date: 2023-08-03 09:43:51
- # @LastEditors: fyfe0203 freeser@live.cn
- # @LastEditTime: 2023-08-03 11:37:44
- # @Description: 
- # @FilePath: /nuxt3-demo/.husky/commit-msg
-### 
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
