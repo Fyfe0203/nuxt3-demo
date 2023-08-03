@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-20 16:57:43
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-03 11:50:33
+ * @LastEditTime: 2023-08-03 16:16:14
  * @Description:
  * @FilePath: /nuxt3-demo/README.md
 -->
@@ -52,6 +52,8 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 # 提交规则
 
-可以利用 `czg` 或 `git czg` 命令启动命令行工具，生成标准化 `commit message`
+如果全局安装了`czg`, 可以利用 `czg` 或 `git czg` 命令启动命令行工具，生成标准化 `commit message`
 
 `npm install -g czg`
+
+如果没有全局安装，则使用 `yarn cz`进行git提交
