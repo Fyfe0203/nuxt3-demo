@@ -47,7 +47,7 @@
         "unplugin-auto-import": "^0.16.6",
         "unplugin-icons": "^0.16.5",
         "unplugin-vue-components": "^0.25.1",
-        "wrap-ansi": "7.0.0"
+        "wrap-ansi": "8.0.1"
     },
     "keywords": [
         "tailwindcss",
