@@ -1,16 +1,15 @@
 {
     // #每次保存的时候将代码按eslint格式进行修复
-    // "editor.codeActionsOnSave": {
-    //     "source.fixAll.eslint": true
-    // },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true,
+    },
     // vscode默认启用了根据文件类型自动设置tabsize的选项
     "editor.detectIndentation": false,
     // 重新设定tabsize
     "editor.tabSize": 4,
     // #每次保存的时候自动格式化
     "editor.formatOnSave": true,
-    //  #让prettier使用eslint的代码格式进行校验
-    // "prettier.eslintIntegration": true,
     //  #去掉代码结尾的分号
     "prettier.semi": true,
     //  #使用单引号替代双引号
@@ -29,6 +28,22 @@
     },
     "i18n-ally.localesPaths": ["locales"],
     "i18n-ally.keystyle": "nested",
+    "stylelint.ignoreDisables": true,
+    "stylelint.packageManager": "npm",
+    "stylelint.snippet": [
+        "css",
+        "less",
+        "postcss",
+        "scss",
+        "vue"
+    ],
+    "stylelint.validate": [
+        "css",
+        "less",
+        "postcss",
+        "scss",
+        "vue"
+    ],
     "javascript.format.semicolons": "insert",
     "typescript.format.semicolons": "insert"
 }

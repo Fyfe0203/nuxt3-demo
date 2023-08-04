@@ -15,5 +15,6 @@
     "proseWrap": "never",
     "htmlWhitespaceSensitivity": "ignore",
     "endOfLine": "auto",
-    "rangeStart": 0
+    "rangeStart": 0,
+    "ignorePath": ".prettierignore"
 }

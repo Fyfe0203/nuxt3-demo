@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-31 17:19:19
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 15:28:44
+ * @LastEditTime: 2023-08-04 11:31:56
  * @Description:
  * @FilePath: /nuxt3-demo/pages/dialog.vue
 -->
@@ -31,7 +31,6 @@
                 // catch error
             });
     };
-
     const openDialog = function () {
         console.log('open dialog');
         useDialog.add({
@@ -53,11 +52,11 @@
     }
 
     .el-carousel__item h3 {
+        margin: 0;
+        line-height: 150px;
+        text-align: center;
         color: #475669;
         opacity: 0.75;
-        line-height: 150px;
-        margin: 0;
-        text-align: center;
     }
 
     .el-carousel__item:nth-child(2n) {

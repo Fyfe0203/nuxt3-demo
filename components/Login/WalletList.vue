@@ -53,7 +53,7 @@
 
 <style lang="postcss">
     .wallet-item {
-        background: linear-gradient(90deg, #f5faff 0%, #e9f3ff 100%, #e9f3ff 100%);
         border-radius: 16px;
+        background: linear-gradient(90deg, #f5faff 0%, #e9f3ff 100%, #e9f3ff 100%);
     }
 </style>

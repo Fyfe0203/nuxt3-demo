@@ -10,10 +10,10 @@
         "postinstall": "nuxt prepare",
         "prepare": "husky install",
         "lint:js": "eslint --ext \".js,.vue\" --ignore-path .eslintignore .",
-        "lint:style": "stylelint \"**/*.{css,scss,sass,html,vue,less}\" --ignore-path .eslintignore",
+        "lint:style": "stylelint \"**/*.{css,scss,sass,html,vue,less,postcss,pcss}\" --ignore-path .stylelintignore",
         "lint:prettier": "prettier --ignore-path .prettierignore --check .",
         "lint": "yarn lint:js && yarn lint:style && yarn lint:prettier",
-        "lintfix": "prettier --write --list-different . --ignore-path .eslintignore && yarn lint:js --fix && yarn lint:style --fix",
+        "lintfix": "prettier --write --list-different . --ignore-path .prettierignore && yarn lint:js --fix && yarn lint:style --fix",
         "lint:lint-staged": "lint-staged"
     },
     "devDependencies": {
@@ -43,6 +43,7 @@
         "prettier": "^3.0.0",
         "stylelint": "^15.10.2",
         "stylelint-config-standard-vue": "^1.0.0",
+        "stylelint-order": "^6.0.3",
         "typescript": "^5.1.6",
         "unplugin-auto-import": "^0.16.6",
         "unplugin-icons": "^0.16.5",
