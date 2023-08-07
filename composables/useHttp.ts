@@ -1,7 +1,7 @@
 import type { FetchResponse } from 'ofetch';
 import type { Ref } from 'vue';
 import type { UseFetchOptions, AsyncData } from '#app';
-import { ElMessage } from 'element-plus';
+import { message } from 'ant-design-vue';
 import { stringify } from 'qs';
 import { useAppStore } from '~/stores/app';
 
@@ -19,10 +19,7 @@ export type HttpOption<T> = UseFetchOptions<ResOptions<T>>;
 function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>) {
     const res = response?._data;
     const err = (text: string) => {
-        ElMessage({
-            message: res?.message ?? text,
-            type: 'error',
-        });
+        message.error(res?.message ?? text);
     };
     if (!res) {
         err('请求超时，服务器无响应！');

@@ -10,8 +10,8 @@
 <template>
     <div class="p-5">
         父弹窗{{ props.id }}
-        <el-button type="primary" @click="openChildDialog">打开子dialog</el-button>
-        <el-button type="primary" @click="closeDialog">关闭弹窗</el-button>
+        <a-button type="primary" @click="openChildDialog">打开子dialog</a-button>
+        <a-button type="primary" @click="closeDialog">关闭弹窗</a-button>
     </div>
 </template>
 

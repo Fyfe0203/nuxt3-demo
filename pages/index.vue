@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-25 13:08:39
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-04 11:31:14
+ * @LastEditTime: 2023-08-07 11:47:58
  * @Description:
  * @FilePath: /nuxt3-demo/pages/index.vue
 -->
@@ -38,11 +38,12 @@
         </div>
 
         <div class="pt-10">
-            element-plus使用：
+            组件库使用：
             <br />
-            <el-button @click="ElMessage('hello')">button</el-button>
-            <ElButton type="success">button</ElButton>
-            <LazyElButton type="warning">lazy button</LazyElButton>
+            <div class="flex gap-5">
+                <a-button @click="message.success('hello')">button</a-button>
+                <a-button type="primary">button</a-button>
+            </div>
         </div>
 
         <div class="pt-10">

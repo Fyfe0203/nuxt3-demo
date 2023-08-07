@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-28 11:16:30
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 18:14:16
+ * @LastEditTime: 2023-08-07 10:38:41
  * @Description:
  * @FilePath: /nuxt3-demo/pages/login.vue
 -->
@@ -12,7 +12,7 @@
 
         <br />
 
-        <el-button type="primary" @click="login">登录</el-button>
+        <a-button type="primary" @click="login">登录</a-button>
     </div>
 </template>
 <script setup>

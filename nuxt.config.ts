@@ -2,15 +2,15 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-22 13:50:00
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 15:36:16
+ * @LastEditTime: 2023-08-07 14:41:03
  * @Description:
  * @FilePath: /nuxt3-demo/nuxt.config.ts
  */
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 // import AutoImport from 'unplugin-auto-import/vite';
-// import Components from 'unplugin-vue-components/vite';
-// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import Components from 'unplugin-vue-components/vite';
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 // import IconsResolver from 'unplugin-icons/resolver';
 import { createRuntimeConfig } from './build';
 
@@ -38,7 +38,7 @@ export default defineNuxtConfig({
             ],
         },
     },
-    css: ['element-plus/theme-chalk/dark/css-vars.css', '@/assets/css/main.pcss'],
+    css: ['ant-design-vue/dist/reset.css', '@/assets/css/main.pcss'],
     runtimeConfig: createRuntimeConfig(),
     components: {
         global: true,
@@ -89,7 +89,7 @@ export default defineNuxtConfig({
                 /* module options */
             },
         ],
-        ['@element-plus/nuxt', {}],
+        '@ant-design-vue/nuxt',
     ],
     colorMode: {
         classSuffix: '',
@@ -99,7 +99,7 @@ export default defineNuxtConfig({
     tailwindcss: {
         cssPath: '~/assets/css/tailwind.css',
         configPath: 'tailwind.config',
-        injectPosition: 'last',
+        // https://tailwindcss.nuxtjs.org/getting-started/options#injectposition,
         viewer: true,
         exposeConfig: true,
     },
@@ -108,31 +108,16 @@ export default defineNuxtConfig({
             'postcss-color-gray': {},
         },
     },
-    // const lifecycle = process.env.npm_lifecycle_event
-    // build: { transpile: [(lifecycle === "build" || lifecycle === "generate" ? "element-plus" : "element-plus/es")], },
-    build: {
-        transpile: ['element-plus/es'],
+    vite: {
+        plugins: [
+            Components({
+                dts: true,
+                resolvers: [
+                    AntDesignVueResolver({
+                        importStyle: false,
+                    }),
+                ],
+            }),
+        ],
     },
-    // vite: {
-    //     plugins: [
-    //         AutoImport({
-    //             resolvers: [ElementPlusResolver(), IconsResolver()],
-    //         }),
-    //         Components({
-    //             dts: true,
-    //             resolvers: [
-    //                 ElementPlusResolver({
-    //                     importStyle: true,
-    //                 }),
-    //             ],
-    //         }),
-    //     ],
-    // },
-    // typescript: {
-    //     tsConfig: {
-    //         compilerOptions: {
-    //             types: ['element-plus/global'],
-    //         },
-    //     },
-    // },
 });

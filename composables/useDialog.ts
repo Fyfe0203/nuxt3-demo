@@ -17,6 +17,9 @@ type DialogOptions = {
     visible?: any;
     callback?: Function;
     beforeClose?: Function;
+    footer?: any;
+    centered?: Boolean;
+    closable?: Boolean;
     unique?: Boolean;
 };
 

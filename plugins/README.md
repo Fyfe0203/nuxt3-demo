@@ -33,19 +33,3 @@ export default defineNuxtPlugin((nuxtApp) => {
 });
 
 ```
-
-# 哪些文件会被自动注册
-
-只有在 plugins/的根目录或者任意子目录下的 index.ts 会被自动注册
-
-```js
-import { ID_INJECTION_KEY } from 'element-plus';
-
-export default defineNuxtPlugin((nuxtApp) => {
-    // Doing something with nuxtApp
-    nuxtApp.vueApp.provide(ID_INJECTION_KEY, {
-        prefix: Math.floor(Math.random() * 10000),
-        current: 0,
-    });
-});
-```
