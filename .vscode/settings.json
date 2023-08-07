@@ -16,11 +16,6 @@
     "prettier.singleQuote": true,
     //  #让函数(名)和后面的括号之间加个空格
     "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
-
-    "emmet.includeLanguages": {
-        "postcss": "css",
-        "vue": "html"
-    },
     "files.associations": {
         "*.css": "postcss",
         "*.pcss": "postcss",
@@ -45,5 +40,11 @@
         "vue"
     ],
     "javascript.format.semicolons": "insert",
-    "typescript.format.semicolons": "insert"
+    "typescript.format.semicolons": "insert",
+    "vue.autoInsert.dotValue": true,
+    "vue.complete.casing.props": "kebab",
+    "vue.inlayHints.missingProps": true,
+    "vue.inlayHints.optionsWrapper": true,
+    "vue.server.fullCompletionList": true,
+    "vue.updateImportsOnFileMove.enabled": true,
 }
