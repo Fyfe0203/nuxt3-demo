@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-21 16:13:44
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-27 16:36:10
+ * @LastEditTime: 2023-08-08 11:58:00
  * @Description:
  * @FilePath: /nuxt3-demo/components/Theme.vue
 -->
@@ -20,4 +20,7 @@
 </template>
 <script setup>
     const colorMode = useColorMode();
+    watchEffect(() => {
+        useCookie('nuxt-color-mode').value = colorMode.preference;
+    });
 </script>
