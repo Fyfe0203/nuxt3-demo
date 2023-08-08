@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-22 13:50:00
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-07 14:41:03
+ * @LastEditTime: 2023-08-08 15:25:35
  * @Description:
  * @FilePath: /nuxt3-demo/nuxt.config.ts
  */
@@ -16,7 +16,7 @@ import { createRuntimeConfig } from './build';
 
 export default defineNuxtConfig({
     devtools: true,
-    ssr: true,
+    ssr: false,
     devServer: {
         port: 3333,
     },

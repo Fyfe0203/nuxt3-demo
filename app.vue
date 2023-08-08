@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-25 13:17:57
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-07 15:01:05
+ * @LastEditTime: 2023-08-08 15:15:34
  * @Description:
  * @FilePath: /nuxt3-demo/app.vue
 -->
@@ -39,4 +39,3 @@
     };
     const theme = computed(() => db[locale.value]);
 </script>
-``
