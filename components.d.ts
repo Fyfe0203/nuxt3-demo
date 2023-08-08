@@ -15,6 +15,7 @@ declare module 'vue' {
         NDialogProvider: (typeof import('naive-ui'))['NDialogProvider'];
         NMessageProvider: (typeof import('naive-ui'))['NMessageProvider'];
         NModal: (typeof import('naive-ui'))['NModal'];
+        NNotificationProvider: (typeof import('naive-ui'))['NNotificationProvider'];
         NPagination: (typeof import('naive-ui'))['NPagination'];
         NSpace: (typeof import('naive-ui'))['NSpace'];
         NTable: (typeof import('naive-ui'))['NTable'];

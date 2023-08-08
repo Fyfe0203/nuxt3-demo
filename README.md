@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-20 16:57:43
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-04 09:57:44
+ * @LastEditTime: 2023-08-08 14:25:19
  * @Description:
  * @FilePath: /nuxt3-demo/README.md
 -->
@@ -84,3 +84,7 @@ module.exports = {
     ignorePath: '.prettierignore',
 };
 ```
+
+# naive ui
+
+https://www.naiveui.com/zh-CN/light/components/avatar
