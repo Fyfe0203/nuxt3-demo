@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-08-02 09:46:44
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 18:31:29
+ * @LastEditTime: 2023-08-07 15:31:58
  * @Description: 
  * @FilePath: /nuxt3-demo/components/Dialog/Test.vue
 -->
@@ -10,8 +10,8 @@
 <template>
     <div class="p-5">
         父弹窗{{ props.id }}
-        <a-button type="primary" @click="openChildDialog">打开子dialog</a-button>
-        <a-button type="primary" @click="closeDialog">关闭弹窗</a-button>
+        <n-button type="primary" @click="openChildDialog">打开子dialog</n-button>
+        <n-button type="primary" @click="closeDialog">关闭弹窗</n-button>
     </div>
 </template>
 
@@ -28,7 +28,7 @@
     };
 
     const openChildDialog = () => {
-        useDialog.add({
+        usePop.add({
             title: '我是子dialog',
             width: '500px',
             component: 'DialogTest2',

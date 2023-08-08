@@ -10,7 +10,7 @@
 <template>
     <div class="p-5">
         子弹窗
-        <a-button type="primary" @click="closeDialog">关闭弹窗</a-button>
+        <n-button type="primary" @click="closeDialog">关闭弹窗</n-button>
     </div>
 </template>
 

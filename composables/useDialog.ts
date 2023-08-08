@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-08-01 17:48:12
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 14:01:50
+ * @LastEditTime: 2023-08-08 10:09:38
  * @Description:
  * @FilePath: /nuxt3-demo/composables/useDialog.ts
  */
@@ -14,7 +14,8 @@ type DialogOptions = {
     props?: Object;
     width?: string;
     class?: string;
-    visible?: any;
+    visible?: Boolean;
+    open?: Boolean;
     callback?: Function;
     beforeClose?: Function;
     footer?: any;
@@ -25,7 +26,7 @@ type DialogOptions = {
 
 const list: DialogOptions[] = reactive([]);
 
-const useDialog = {
+const usePop = {
     list,
     add: addDialog,
     close: closeDialog,
@@ -34,18 +35,19 @@ const useDialog = {
 function addDialog(options: DialogOptions) {
     const { unique, ...config } = options;
     if (unique) {
-        useDialog.list = reactive(useDialog.list.filter((i: DialogOptions) => i.component !== options.component));
+        usePop.list = reactive(usePop.list.filter((i: DialogOptions) => i.component !== options.component));
     }
-    useDialog.list.push(Object.assign(config, { visible: true, key: [config.component, +new Date()].join(',') }));
+    const item = Object.assign(config, { visible: false, open: true, key: [config.component, +new Date()].join(',') });
+    usePop.list.push(item);
 }
 
 function closeDialog(item?: DialogOptions, i: number = 0, args?: any) {
     if (!item) {
-        useDialog.list = reactive([]);
+        usePop.list = reactive([]);
         return;
     }
-    i >= 0 && useDialog.list.splice(i, 1);
+    i >= 0 && usePop.list.splice(i, 1);
     if (args && args.length && item.callback) item.callback(...args);
 }
 
-export { useDialog };
+export { usePop };

@@ -1,7 +1,7 @@
 import type { FetchResponse } from 'ofetch';
 import type { Ref } from 'vue';
 import type { UseFetchOptions, AsyncData } from '#app';
-import { message } from 'ant-design-vue';
+import { useMessage } from 'naive-ui';
 import { stringify } from 'qs';
 import { useAppStore } from '~/stores/app';
 
@@ -19,7 +19,7 @@ export type HttpOption<T> = UseFetchOptions<ResOptions<T>>;
 function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>) {
     const res = response?._data;
     const err = (text: string) => {
-        message.error(res?.message ?? text);
+        useMessage().error(res?.message ?? text);
     };
     if (!res) {
         err('请求超时，服务器无响应！');

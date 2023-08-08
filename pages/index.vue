@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-25 13:08:39
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-07 11:47:58
+ * @LastEditTime: 2023-08-07 16:15:12
  * @Description:
  * @FilePath: /nuxt3-demo/pages/index.vue
 -->
@@ -40,10 +40,15 @@
         <div class="pt-10">
             组件库使用：
             <br />
-            <div class="flex gap-5">
-                <a-button @click="message.success('hello')">button</a-button>
-                <a-button type="primary">button</a-button>
-            </div>
+            <n-space>
+                <n-button>Default</n-button>
+                <n-button type="tertiary">Tertiary</n-button>
+                <n-button type="primary">Primary</n-button>
+                <n-button type="info">Info</n-button>
+                <n-button type="success">Success</n-button>
+                <n-button type="warning">Warning</n-button>
+                <n-button type="error">Error</n-button>
+            </n-space>
         </div>
 
         <div class="pt-10">

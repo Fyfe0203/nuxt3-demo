@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-28 11:16:30
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-07 10:38:41
+ * @LastEditTime: 2023-08-07 15:32:15
  * @Description:
  * @FilePath: /nuxt3-demo/pages/login.vue
 -->
@@ -12,12 +12,12 @@
 
         <br />
 
-        <a-button type="primary" @click="login">登录</a-button>
+        <n-button type="primary" @click="login">登录</n-button>
     </div>
 </template>
 <script setup>
     function login() {
-        useDialog.add({
+        usePop.add({
             title: '登录',
             component: 'DialogLogin',
         });

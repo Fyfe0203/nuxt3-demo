@@ -2,51 +2,60 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-31 17:19:19
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-07 13:53:48
+ * @LastEditTime: 2023-08-08 10:18:49
  * @Description:
  * @FilePath: /nuxt3-demo/pages/dialog.vue
 -->
 <template>
     <div class="px-5">
-        <a-carousel height="150px">
-            <a v-for="item in 4" :key="item" class="a-carousel__item">
-                <h3 class="small justify-center" text="2xl">{{ item }}</h3>
-            </a>
-        </a-carousel>
-        <client-only>
-            <a-tooltip placement="left" title="Prompt Text">
-                <a-button>Adjust automatically / 自动调整</a-button>
-            </a-tooltip>
-        </client-only>
-        <a-button type="primary" @click="openDialog">click to open the Dialog</a-button>
+        <n-carousel>
+            <img class="carousel-img" src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel1.jpeg" />
+            <img class="carousel-img" src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel2.jpeg" />
+            <img class="carousel-img" src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel3.jpeg" />
+            <img class="carousel-img" src="https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel4.jpeg" />
+        </n-carousel>
+        <n-tooltip trigger="hover">
+            <template #trigger>
+                <n-button>鸭子</n-button>
+            </template>
+            如果它长得像鸭子，走起来像鸭子，叫起来也像鸭子，那它一定是个鸭子。
+        </n-tooltip>
+        <n-button type="primary" @click="openDialog">click to open the Dialog</n-button>
     </div>
 </template>
 
 <script lang="ts" setup>
+    const dialog = useDialog();
+    const message = useMessage();
+
     const beforeClose = () => {
-        message.info('This is a normal message');
         return promisify((res: () => void, rej: () => void) => {
-            Modal.confirm({
+            const d = dialog.info({
                 title: 'Are you sure to close this dialog?',
-                onOk() {
-                    return new Promise((resolve, reject) => {
+                content: '你确定？',
+                positiveText: '确定',
+                negativeText: '取消',
+                onPositiveClick() {
+                    d.loading = true;
+                    return promisify((resolve: (arg0: number) => void, reject: (arg0: Error) => void) => {
                         setTimeout(() => {
                             if (Math.random() > 0.5) {
                                 resolve(0);
-                                res();
+                                setTimeout(res);
+                                d.loading = false;
                             } else {
                                 reject(new Error('any'));
                                 rej();
                             }
                         }, 1000);
-                    }).catch(() => console.log('Oops errors!'));
+                    }).catch(() => message.error('Oops errors!'));
                 },
             });
         });
     };
     const openDialog = function () {
         console.log('open dialog');
-        useDialog.add({
+        usePop.add({
             title: '测试弹窗',
             component: 'DialogTest',
             props: {
@@ -60,23 +69,9 @@
     };
 </script>
 <style scoped>
-    .dialog-footer button:first-child {
-        margin-right: 10px;
-    }
-
-    .a-carousel__item h3 {
-        margin: 0;
-        line-height: 150px;
-        text-align: center;
-        color: #475669;
-        opacity: 0.75;
-    }
-
-    .a-carousel__item:nth-child(2n) {
-        background-color: #99a9bf;
-    }
-
-    .a-carousel__item:nth-child(2n + 1) {
-        background-color: #d3dce6;
+    .carousel-img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
     }
 </style>

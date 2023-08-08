@@ -16,3 +16,4 @@ docs
 bin
 types
 **/*.d.ts
+*.d.ts

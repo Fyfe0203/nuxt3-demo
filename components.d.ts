@@ -7,13 +7,18 @@ export {}
 
 declare module 'vue' {
     export interface GlobalComponents {
-        AButton: (typeof import('ant-design-vue/es'))['Button'];
-        ACarousel: (typeof import('ant-design-vue/es'))['Carousel'];
-        AConfigProvider: (typeof import('ant-design-vue/es'))['ConfigProvider'];
-        AModal: (typeof import('ant-design-vue/es'))['Modal'];
-        APagination: (typeof import('ant-design-vue/es'))['Pagination'];
-        ATable: (typeof import('ant-design-vue/es'))['Table'];
-        ATooltip: (typeof import('ant-design-vue/es'))['Tooltip'];
+        NButton: (typeof import('naive-ui'))['NButton'];
+        NCarousel: (typeof import('naive-ui'))['NCarousel'];
+        NConfigProvider: (typeof import('naive-ui'))['NConfigProvider'];
+        NDataTable: (typeof import('naive-ui'))['NDataTable'];
+        NDatePicker: (typeof import('naive-ui'))['NDatePicker'];
+        NDialogProvider: (typeof import('naive-ui'))['NDialogProvider'];
+        NMessageProvider: (typeof import('naive-ui'))['NMessageProvider'];
+        NModal: (typeof import('naive-ui'))['NModal'];
+        NPagination: (typeof import('naive-ui'))['NPagination'];
+        NSpace: (typeof import('naive-ui'))['NSpace'];
+        NTable: (typeof import('naive-ui'))['NTable'];
+        NTooltip: (typeof import('naive-ui'))['NTooltip'];
         RouterLink: (typeof import('vue-router'))['RouterLink'];
         RouterView: (typeof import('vue-router'))['RouterView'];
     }

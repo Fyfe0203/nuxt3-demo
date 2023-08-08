@@ -17,9 +17,9 @@
         "lint:lint-staged": "lint-staged"
     },
     "devDependencies": {
-        "@ant-design-vue/nuxt": "^1.1.0",
         "@commitlint/cli": "^17.6.7",
         "@commitlint/config-conventional": "^17.6.7",
+        "@css-render/vue3-ssr": "^0.15.12",
         "@nuxt/devtools": "^0.7.1",
         "@nuxtjs/color-mode": "^3.2.0",
         "@nuxtjs/eslint-config-typescript": "^12.0.0",
@@ -36,6 +36,7 @@
         "eslint-plugin-vue": "^9.16.1",
         "husky": "^8.0.3",
         "lint-staged": "^13.2.3",
+        "naive-ui": "^2.34.4",
         "nuxt": "^3.6.5",
         "nuxt-icons": "^3.2.1",
         "postcss-color-gray": "5.0.0",
@@ -46,7 +47,6 @@
         "stylelint-order": "^6.0.3",
         "typescript": "^5.1.6",
         "unplugin-auto-import": "^0.16.6",
-        "unplugin-icons": "^0.16.5",
         "unplugin-vue-components": "^0.25.1",
         "wrap-ansi": "8.0.1"
     },
