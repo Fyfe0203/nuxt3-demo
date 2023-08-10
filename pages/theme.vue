@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-27 16:13:35
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-07-28 10:58:54
+ * @LastEditTime: 2023-08-09 10:31:02
  * @Description:
  * @FilePath: /nuxt3-demo/pages/theme.vue
 -->
@@ -15,7 +15,7 @@
         </div>
     </div>
 </template>
-<script setup>
+<script setup lang="ts">
     import { useAppStore } from '@/stores/app';
     const store = useAppStore();
 </script>

@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-31 17:19:19
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-04 11:31:56
+ * @LastEditTime: 2023-08-10 09:53:58
  * @Description:
  * @FilePath: /nuxt3-demo/pages/dialog.vue
 -->
@@ -16,35 +16,46 @@
         <el-tooltip content="Bottom center" trigger="click">
             <el-button>Customized theme</el-button>
         </el-tooltip>
-        <ElButton type="primary" @click="openDialog">click to open the Dialog</ElButton>
+
+        <el-button type="primary" @click="dialog">弹窗</el-button>
+        <br />
+
+        <el-button type="primary" @click="draw">抽屉</el-button>
     </div>
 </template>
 
-<script lang="ts" setup>
-    const handleClose = (done: () => void) => {
-        ElMessageBox.confirm('Are you sure to close this dialog?')
-            .then(() => {
-                done();
-                console.log('handle close');
-            })
-            .catch(() => {
-                // catch error
-            });
-    };
-    const openDialog = function () {
-        console.log('open dialog');
+<script setup>
+    // const handleClose = (done: () => void) => {
+    //     ElMessageBox.confirm('Are you sure to close this dialog?')
+    //         .then(() => {
+    //             done();
+    //             console.log('handle close');
+    //         })
+    //         .catch(() => {
+    //             // catch error
+    //         });
+    // };
+    function dialog() {
         useDialog.add({
             title: '测试弹窗',
             component: 'DialogTest',
-            props: {
-                id: 123456,
-            },
-            beforeClose: handleClose,
-            callback: () => {
-                console.log('close callback');
+            beforeClose(done) {
+                console.log('beforeclose');
+                done();
             },
         });
-    };
+    }
+    function draw() {
+        useDialog.add({
+            title: '测试抽屉',
+            type: 'drawer',
+            component: 'DialogTest2',
+            beforeClose(done) {
+                console.log('beforeclose');
+                done();
+            },
+        });
+    }
 </script>
 <style scoped>
     .dialog-footer button:first-child {

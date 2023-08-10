@@ -1,22 +1,36 @@
 <!--
- * @Author: fyfe0203 freeser@live.cn
- * @Date: 2023-08-02 09:50:36
- * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 18:31:23
+ * @Author: freeser freeser@126.com
+ * @Date: 2023-08-09 16:44:09
+ * @LastEditors: freeser freeser@126.com
+ * @LastEditTime: 2023-08-09 18:23:43
  * @Description: 
- * @FilePath: /nuxt3-demo/components/Dialog/Test2.vue
+ * @FilePath: /nuxt3-ai-aide/components/Dialog/Test2.vue
 -->
-<!-- child.vue -->
 <template>
-    <div class="p-5">
-        子弹窗
-        <el-button type="primary" @click="closeDialog">关闭弹窗</el-button>
+    <div class="bg-red-200 h-[200px]">
+        抽屉 {{ new Date() }}
+        <br />
+        <el-button type="primary" @click="draw">打开子抽屉</el-button>
     </div>
 </template>
 
 <script setup>
-    const emit = defineEmits(['close']);
-    const closeDialog = () => {
-        emit('close', 1, 2, 34);
+    const handleClose = (done) => {
+        ElMessageBox.confirm('You still have unsaved data, proceed?')
+            .then(() => {
+                done();
+            })
+            .catch(() => {
+                // catch error
+            });
     };
+    function draw() {
+        useDialog.add({
+            title: '测试抽屉',
+            type: 'drawer',
+            width: parseInt(Math.random() * 600),
+            beforeClose: handleClose,
+            component: 'DialogTest2',
+        });
+    }
 </script>

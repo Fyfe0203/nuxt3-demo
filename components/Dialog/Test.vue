@@ -1,37 +1,35 @@
 <!--
- * @Author: fyfe0203 freeser@live.cn
- * @Date: 2023-08-02 09:46:44
- * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 18:31:29
+ * @Author: freeser freeser@126.com
+ * @Date: 2023-08-09 16:44:09
+ * @LastEditors: freeser freeser@126.com
+ * @LastEditTime: 2023-08-09 18:24:02
  * @Description: 
- * @FilePath: /nuxt3-demo/components/Dialog/Test.vue
+ * @FilePath: /nuxt3-ai-aide/components/Dialog/Test.vue
 -->
-<!-- test.vue -->
 <template>
-    <div class="p-5">
-        父弹窗{{ props.id }}
-        <el-button type="primary" @click="openChildDialog">打开子dialog</el-button>
-        <el-button type="primary" @click="closeDialog">关闭弹窗</el-button>
+    <div class="bg-blue-200 h-[200px]">
+        弹窗 {{ new Date() }}
+        <br />
+        <el-button type="primary" @click="draw">打开子弹窗</el-button>
     </div>
 </template>
 
 <script setup>
-    const props = defineProps({
-        id: {
-            type: Number,
-            default: 0,
-        },
-    });
-    const emit = defineEmits(['close']);
-    const closeDialog = () => {
-        emit('close', 1, 23);
+    const handleClose = (done) => {
+        ElMessageBox.confirm('You still have unsaved data, proceed?')
+            .then(() => {
+                done();
+            })
+            .catch(() => {
+                // catch error
+            });
     };
-
-    const openChildDialog = () => {
+    function draw() {
         useDialog.add({
-            title: '我是子dialog',
-            width: '500px',
-            component: 'DialogTest2',
+            title: '测试弹窗',
+            width: parseInt(Math.random() * 600),
+            beforeClose: handleClose,
+            component: 'DialogTest',
         });
-    };
+    }
 </script>
