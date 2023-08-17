@@ -2,36 +2,35 @@ img:not([src]),
 img[src=''] {
     opacity: 0;
 }
-
+/* 
+来源：https://mp.weixin.qq.com/s/kg252ccR1-7vCFJHnRr2Mg
+1、根据粗细程度自动选择对应字体包，可以通过 @font-face 中的 font-weight 属性来设置字体的宽度，注意，这里我们把字体名字都设为相同的
+2、如何根据不同语言自动选择字体包，使用 unicode-range 设置字符 unicode 范围，从而自定义字体包。如：unicode-range: U+0020-007E, U+4E00-9FFF;
+*/
 @font-face {
-    font-family: MiRegular; /* 自定义字体名称; */
+    font-family: PuHuiTi; /* 自定义字体名称; */
     src: url('../font/Alibaba-PuHuiTi-Regular.woff2'); /* 自定义字体的存放路径、格式; */
     font-weight: 400;
-    font-display: swap;
 }
 @font-face {
-    font-family: MiMedium; /* 自定义字体名称; */
+    font-family: PuHuiTi; /* 自定义字体名称; */
     src: url('../font/Alibaba-PuHuiTi-Medium.woff2'); /* 自定义字体的存放路径、格式; */
     font-weight: 500;
-    font-display: swap;
 }
 @font-face {
-    font-family: MiBold; /* 自定义字体名称; */
+    font-family: PuHuiTi; /* 自定义字体名称; */
     src: url('../font/Alibaba-PuHuiTi-Bold.woff2'); /* 自定义字体的存放路径、格式; */
     font-weight: 700;
-    font-display: swap;
-}
-
-.font-w4 {
-    font-family: 'MiRegular', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
 }
 
 .font-w5 {
-    font-family: 'MiMedium', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+    /* 等同于tailwindcss的font-medium */
+    font-weight: 500;
 }
 
 .font-w7 {
-    font-family: 'MiBold', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+    /* 等同于tailwindcss的font-bold */
+    font-weight: 700;
 }
 
 input[type='number'] {
@@ -45,7 +44,8 @@ input[type='number'] {
 
 html {
     body {
-        font-family: 'MiRegular', 'Microsoft YaHei', Helvetica, Arial, sans-serif !important;
+        font-family: 'PuHuiTi', 'Microsoft YaHei', Helvetica, Arial, sans-serif !important;
+        font-weight: 400;
     }
 
     .translate-center {
