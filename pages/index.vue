@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-25 13:08:39
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-17 10:35:15
+ * @LastEditTime: 2023-08-17 15:22:46
  * @Description:
  * @FilePath: /nuxt3-demo/pages/index.vue
 -->
@@ -48,8 +48,9 @@
         <div class="pt-10">
             查询数据：
             <br />
-            {{ data || '' }}
+            <!-- {{ data || '' }} -->
         </div>
+        <Avatar></Avatar>
     </div>
 </template>
 <script>
@@ -67,7 +68,7 @@
     //     method: 'post',
     //     baseURL: '/front-api',
     // });
-    const { data, pending } = await useHttp.post(() => '/banner/list?type=' + counter.value);
+    // const { data, pending } = await useHttp.post(() => '/banner/list?type=' + counter.value);
 </script>
 <style lang="postcss">
     .test {

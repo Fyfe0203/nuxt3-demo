@@ -2,13 +2,13 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-28 17:33:32
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-01 14:06:18
+ * @LastEditTime: 2023-08-17 15:15:43
  * @Description:
  * @FilePath: /nuxt3-demo/utils/web3/metamask.ts
  */
 import detectEthereumProvider from '@metamask/detect-provider';
-import { isMobile } from '../index';
 import { WalletKeys } from './wallet-list';
+import { isMobile } from '~/utils';
 import { useAppStore } from '@/stores/app';
 
 export function useWalletMetaMask() {
