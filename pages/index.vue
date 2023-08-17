@@ -2,7 +2,7 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-25 13:08:39
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-04 11:31:14
+ * @LastEditTime: 2023-08-17 10:35:15
  * @Description:
  * @FilePath: /nuxt3-demo/pages/index.vue
 -->
@@ -27,7 +27,7 @@
             <nuxt-icon name="arr-circle-right" />
         </div>
 
-        <div class="pt-10">
+        <div v-loading="pending" class="pt-10">
             composables使用
             <br />
             <div>
@@ -48,7 +48,7 @@
         <div class="pt-10">
             查询数据：
             <br />
-            {{ data }}
+            {{ data || '' }}
         </div>
     </div>
 </template>
@@ -62,7 +62,12 @@
     const counter = useCounter();
     // 另外一种方式
     // useApi().login.getUserInfo()
-    const { data } = await useHttp.postForm('/banner/list', { type: 1 });
+
+    // const { data, pending } = await useFetch(() => '/banner/list?type=' + counter.value, {
+    //     method: 'post',
+    //     baseURL: '/front-api',
+    // });
+    const { data, pending } = await useHttp.post(() => '/banner/list?type=' + counter.value);
 </script>
 <style lang="postcss">
     .test {

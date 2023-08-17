@@ -1,24 +1,87 @@
+img:not([src]),
+img[src=''] {
+    opacity: 0;
+}
+
+@font-face {
+    font-family: MiRegular; /* 自定义字体名称; */
+    src: url('../font/Alibaba-PuHuiTi-Regular.woff2'); /* 自定义字体的存放路径、格式; */
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: MiMedium; /* 自定义字体名称; */
+    src: url('../font/Alibaba-PuHuiTi-Medium.woff2'); /* 自定义字体的存放路径、格式; */
+    font-weight: 500;
+    font-display: swap;
+}
+@font-face {
+    font-family: MiBold; /* 自定义字体名称; */
+    src: url('../font/Alibaba-PuHuiTi-Bold.woff2'); /* 自定义字体的存放路径、格式; */
+    font-weight: 700;
+    font-display: swap;
+}
+
+.font-w4 {
+    font-family: 'MiRegular', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+}
+
+.font-w5 {
+    font-family: 'MiMedium', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+}
+
+.font-w7 {
+    font-family: 'MiBold', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+}
+
+input[type='number'] {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    -moz-appearance: textfield;
+}
+
 html {
     body {
-        .test {
-            &_working {
-                @apply text-green-500;
-            }
-        }
+        font-family: 'MiRegular', 'Microsoft YaHei', Helvetica, Arial, sans-serif !important;
     }
-}
 
-.ping-component {
-    --slider-bg: #ebedf2;
-
-    .ant-slider {
-        height: 10px;
-        background: var(--slider-bg);
-        border-radius: 5px;
+    .translate-center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
-}
-.dark {
-    .ping-component {
-        --slider-bg: red;
+
+    .translate-center-x {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .translate-center-y {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .flex-center-x {
+        display: flex;
+        align-items: center;
+    }
+    .flex-center-y {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nuxt-icon svg {
+        margin-bottom: 0;
     }
 }

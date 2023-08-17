@@ -2,7 +2,7 @@
  * @Author: freeser freeser@126.com
  * @Date: 2023-08-09 16:44:09
  * @LastEditors: freeser freeser@126.com
- * @LastEditTime: 2023-08-09 18:23:43
+ * @LastEditTime: 2023-08-10 11:22:00
  * @Description: 
  * @FilePath: /nuxt3-ai-aide/components/Dialog/Test2.vue
 -->
@@ -28,7 +28,7 @@
         useDialog.add({
             title: '测试抽屉',
             type: 'drawer',
-            width: parseInt(Math.random() * 600),
+            width: Math.max(parseInt(Math.random() * 800), 500),
             beforeClose: handleClose,
             component: 'DialogTest2',
         });

@@ -20,7 +20,7 @@ function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<R
     const res = response?._data;
     const err = (text: string) => {
         ElMessage({
-            message: res?.message ?? text,
+            message: text || res?.message,
             type: 'error',
         });
     };
@@ -44,17 +44,13 @@ function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<R
 }
 
 function fetch<T>(url: UrlType, option: any): Promise<AsyncData<ResOptions<T>, Error>> {
+    const runtime = useRuntimeConfig();
+    const baseURL = String(url).includes('://') ? '' : runtime.public.baseURL;
     return new Promise((resolve, reject) => {
         useFetch<ResOptions<T>>(url, {
+            baseURL,
             // 请求拦截器
             onRequest({ options }) {
-                // get方法传递数组形式参数
-                // 添加baseURL,nuxt3环境变量要从useRuntimeConfig里面取
-                const {
-                    public: { apiBase },
-                } = useRuntimeConfig();
-
-                options.baseURL = String(url).includes('://') ? '' : apiBase;
                 // 添加请求头,没登录不携带token
                 const store = useAppStore();
                 options.headers = new Headers(options.headers || {});
@@ -69,7 +65,7 @@ function fetch<T>(url: UrlType, option: any): Promise<AsyncData<ResOptions<T>, E
             onResponse({ response }) {
                 const res = response._data || {};
                 // 在这里判断错误
-                if (response.status !== 200 || res.code !== 0) {
+                if (response.status === 200 && res.code !== 0) {
                     handleError<T>(response);
                 }
             },
@@ -77,6 +73,7 @@ function fetch<T>(url: UrlType, option: any): Promise<AsyncData<ResOptions<T>, E
             onResponseError({ response }) {
                 handleError<T>(response);
             },
+            // pick: ['data'],
             // 合并参数
             ...option,
         })
@@ -120,6 +117,15 @@ export const useHttp = {
 
     put: <T>(url: UrlType, body?: any, option?: HttpOption<T>) => {
         return fetch<T>(url, { method: 'put', body, ...option });
+    },
+
+    putForm: <T>(url: UrlType, body?: any, option?: HttpOption<T>) => {
+        return fetch<T>(url, {
+            method: 'put',
+            body: stringify(body),
+            ...option,
+            headers: fixFormHeader(option?.headers),
+        });
     },
 
     delete: <T>(url: UrlType, body?: any, option?: HttpOption<T>) => {

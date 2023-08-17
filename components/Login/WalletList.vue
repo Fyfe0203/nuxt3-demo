@@ -2,12 +2,12 @@
  * @Author: freeser freeser@126.com
  * @Date: 2022-11-21 18:55:41
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 18:27:16
+ * @LastEditTime: 2023-08-16 18:56:42
  * @Description:
  * @FilePath: /nuxt3-demo/components/Login/WalletList.vue
 -->
 <template>
-    <div class="grid gap-5">
+    <div class="grid px-10 py-5 gap-5">
         <div v-for="i in list" :key="i.key">
             <div
                 class="p-5 flex items-center gap-5 wallet-item"

@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-08-01 17:48:12
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-10 09:52:41
+ * @LastEditTime: 2023-08-16 18:53:50
  * @Description:
  * @FilePath: /nuxt3-demo/composables/useDialog.ts
  */
@@ -15,9 +15,10 @@ type DialogOptions = {
     width?: string;
     type?: 'drawer' | 'dialog';
     class?: string;
-    visible?: any;
-    callback?: Function;
-    beforeClose?: Function;
+    visible?: boolean;
+    afterClose?: (...args: any) => void;
+    beforeClose?: (done: () => void) => void; // 可以在弹窗内组件里重置
+    showClose?: Boolean;
     unique?: Boolean;
 };
 
@@ -40,13 +41,12 @@ function addDialog(options: DialogOptions) {
     useDialog.list.push(Object.assign(config, { visible: true, key: [config.component, +new Date()].join(',') }));
 }
 
-function closeDialog(item?: DialogOptions, i: number = 0, args?: any) {
+function closeDialog(item?: DialogOptions, i: number = 0) {
     if (!item) {
         useDialog.list.splice(0, useDialog.list.length);
         return;
     }
     i >= 0 && useDialog.list.splice(i, 1);
-    if (args && args.length && item.callback) item.callback(...args);
 }
 
 export { useDialog };

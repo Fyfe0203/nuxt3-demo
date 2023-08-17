@@ -2,27 +2,23 @@
  * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
  * @Date: 2023-05-22 13:50:00
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-02 15:36:16
+ * @LastEditTime: 2023-08-16 18:43:37
  * @Description:
  * @FilePath: /nuxt3-demo/nuxt.config.ts
  */
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-// import AutoImport from 'unplugin-auto-import/vite';
-// import Components from 'unplugin-vue-components/vite';
-// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
-// import IconsResolver from 'unplugin-icons/resolver';
-import { createRuntimeConfig } from './build';
+import { fileURLToPath } from 'url';
 
 export default defineNuxtConfig({
     devtools: true,
-    ssr: true,
+    ssr: false,
     devServer: {
-        port: 3333,
+        port: 3333, // 会被"dev": "nuxt dev --dotenv .env.development -p 3333",里的覆盖
     },
     app: {
         head: {
-            title: 'Nuxt 3 测试项目',
+            title: 'AI助手',
             charset: 'utf-8',
             meta: [
                 { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -36,10 +32,20 @@ export default defineNuxtConfig({
                 { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
                 { rel: 'stylesheet', type: 'text/css', href: '/theme.css' },
             ],
+            script: [{ src: '/google-client.js' }],
+        },
+        // This can be set at runtime by setting the NUXT_APP_BASE_URL environment variable.
+        baseURL: '/', // The base path of your Nuxt application.
+    },
+    css: ['@/assets/css/element.css', '@/assets/css/main.pcss'], // 'element-plus/theme-chalk/dark/css-vars.css',
+    runtimeConfig: {
+        public: {
+            baseURL: process.env.NUXT_PUBLIC_BASE_URL,
         },
     },
-    css: ['element-plus/theme-chalk/dark/css-vars.css', '@/assets/css/main.pcss'],
-    runtimeConfig: createRuntimeConfig(),
+    alias: {
+        stores: fileURLToPath(new URL('./stores', import.meta.url)),
+    },
     components: {
         global: true,
         dirs: ['~/components'],
@@ -77,19 +83,9 @@ export default defineNuxtConfig({
             },
         ],
         '@pinia-plugin-persistedstate/nuxt',
-        [
-            '@nuxtjs/eslint-module',
-            {
-                // cache: false,
-            },
-        ],
-        [
-            '@nuxtjs/stylelint-module',
-            {
-                /* module options */
-            },
-        ],
-        ['@element-plus/nuxt', {}],
+        '@nuxtjs/eslint-module',
+        '@nuxtjs/stylelint-module',
+        '@element-plus/nuxt',
     ],
     colorMode: {
         classSuffix: '',
@@ -108,31 +104,27 @@ export default defineNuxtConfig({
             'postcss-color-gray': {},
         },
     },
-    // const lifecycle = process.env.npm_lifecycle_event
-    // build: { transpile: [(lifecycle === "build" || lifecycle === "generate" ? "element-plus" : "element-plus/es")], },
-    build: {
-        transpile: ['element-plus/es'],
+    typescript: {
+        strict: true,
+        shim: false,
     },
-    // vite: {
-    //     plugins: [
-    //         AutoImport({
-    //             resolvers: [ElementPlusResolver(), IconsResolver()],
-    //         }),
-    //         Components({
-    //             dts: true,
-    //             resolvers: [
-    //                 ElementPlusResolver({
-    //                     importStyle: true,
-    //                 }),
-    //             ],
-    //         }),
-    //     ],
-    // },
-    // typescript: {
-    //     tsConfig: {
-    //         compilerOptions: {
-    //             types: ['element-plus/global'],
-    //         },
-    //     },
-    // },
+    vite: {
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: '@use "@/assets/css/var.scss" as element;',
+                },
+            },
+        },
+    },
+    elementPlus: {
+        importStyle: 'scss',
+    },
+    routeRules: {
+        '/front-api/**': {
+            proxy: {
+                to: 'http://124.70.79.129:7098/front-api/**',
+            },
+        },
+    },
 });

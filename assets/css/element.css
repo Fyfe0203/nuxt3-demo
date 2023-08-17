@@ -1,0 +1,132 @@
+/* 重置 element-plus */
+html {
+    .el-dialog {
+        --el-dialog-padding-primary: 0;
+        --el-dialog-border-radius: 12px;
+
+        overflow: hidden;
+        max-width: 100%;
+        .el-dialog__header {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .el-drawer {
+        --el-drawer-padding-primary: 0;
+        --el-drawer-bg-color: #f6fafd;
+        max-width: 100%;
+        .el-drawer__header {
+            margin: 0;
+        }
+        .el-drawer__body {
+            .el-input {
+                --el-border-color: #eaeef4;
+                --el-input-bg-color: #fff;
+            }
+        }
+    }
+
+    .el-button {
+        --el-font-size-base: 16px;
+        --el-border-radius-base: 16px;
+    }
+
+    .el-table {
+        --el-table-header-text-color: var(--text-main);
+
+        .cell {
+            padding: 0 12px 0 0;
+        }
+        .el-table__cell {
+            padding: 20px 0;
+        }
+
+        .el-table__header {
+            .el-table__cell {
+                padding: 12px 0;
+            }
+        }
+    }
+
+    .el-select {
+        --el-select-input-font-size: 16px;
+    }
+
+    .el-input {
+        font-size: 16px;
+        --el-input-height: 50px;
+        --el-input-border-radius: 8px;
+        --el-border-color: #eaeef4;
+        --el-input-bg-color: #f6fafd;
+
+        &.is-disabled {
+            --el-disabled-bg-color: #f6fafd;
+            --el-disabled-text-color: var(--text-gray);
+        }
+    }
+
+    .el-input-like {
+        border: 1px solid #eaeef4;
+        background: #f6fafd;
+        width: 100%;
+        border-radius: 8px;
+        height: 50px;
+        line-height: 1.1;
+
+        &:hover {
+            box-shadow: 0 0 0 1px #c0c4cc inset;
+        }
+    }
+
+    .el-radio {
+        .el-radio__input {
+            .el-radio__inner {
+                width: 16px;
+                height: 16px;
+                border-color: #8c8c8c;
+            }
+            &.is-checked {
+                .el-radio__inner {
+                    border-color: var(--el-color-primary);
+                    background: transparent;
+                    &::after {
+                        width: 8px;
+                        height: 8px;
+                        background: var(--el-color-primary);
+                    }
+                }
+            }
+        }
+    }
+
+    .el-form {
+        --el-form-label-font-size: 16px;
+
+        &.el-form--default.el-form--label-top .el-form-item .el-form-item__label {
+            margin-bottom: 16px;
+        }
+    }
+
+    .el-radio-group.grid-list {
+        display: grid;
+        .el-radio {
+            position: relative;
+            height: auto;
+            margin: 0;
+
+            .el-radio__label {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 0;
+            }
+            .el-radio__input {
+                position: absolute;
+                top: 50%;
+                right: 30px;
+                margin-top: -7px;
+            }
+        }
+    }
+}

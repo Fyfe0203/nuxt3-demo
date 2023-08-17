@@ -2,7 +2,7 @@
  * @Author: fyfe0203 freeser@live.cn
  * @Date: 2023-07-31 17:19:19
  * @LastEditors: fyfe0203 freeser@live.cn
- * @LastEditTime: 2023-08-10 09:53:58
+ * @LastEditTime: 2023-08-16 18:55:17
  * @Description:
  * @FilePath: /nuxt3-demo/pages/dialog.vue
 -->
@@ -37,7 +37,6 @@
     // };
     function dialog() {
         useDialog.add({
-            title: '测试弹窗',
             component: 'DialogTest',
             beforeClose(done) {
                 console.log('beforeclose');
@@ -47,9 +46,9 @@
     }
     function draw() {
         useDialog.add({
-            title: '测试抽屉',
             type: 'drawer',
             component: 'DialogTest2',
+            width: '768px',
             beforeClose(done) {
                 console.log('beforeclose');
                 done();
